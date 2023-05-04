@@ -97,7 +97,7 @@ public class ThirdTask {
     }
 
     // Factorial Program In Java
-    public static int factorial(int n){
+    public static int factorial(int n) {
 //        int result = 1, i = 1;
 //        while ( i <= n){
 //            result *= i;
@@ -105,11 +105,67 @@ public class ThirdTask {
 //        }
 //        return result;
 
-        if (n == 0){
+        if (n == 0) {
             return 1;
         }
         return n * factorial(n - 1);
+    }
 
+    // Power In Java
+    public static int power(int base, int exponent) {
+//        int result = 1;
+//        for (int i = 1; i<=exponent; i++){
+//            result *=base;
+//        }
+//        return result;
+
+        int i = 1, result = 1;
+        while (i <= exponent) {
+            result *= base;
+            i++;
+        }
+        return result;
+    }
+
+    // Java Program Vowel Or Consonant
+    public static int vowelOrConsonant(char letter) {
+        if (isVowel(letter)){
+            System.out.println(letter + " is a vowel letter. ");
+        }
+        else {
+            System.out.println(letter + " is a consonant letter");
+        }
+        return 0;
+    }
+
+    static boolean isVowel(char letter) {
+        return switch (letter) {
+            case 'a', 'e', 'i', 'o', 'u', 'A', 'E', 'I', 'O', 'U' -> true;
+            default -> false;
+        };
+    }
+
+    // Sum Of A Digits Of Number
+    public static int sumOfDigits(int n){
+        int sum = 0;
+        while (n !=0){
+            sum += n % 10;
+            n /= 10;
+        }
+        return sum;
+    }
+    // Perfect Number In Java
+    // A perfect number is a positive integer that is equal to the sum of its proper divisors (excluding itself)
+    public static boolean perfectNumber(int number){
+        int i =  1, sum = 0;
+
+        while (i < number){
+            if (number % i == 0){
+                sum += i;
+            }
+            i++;
+        }
+        return sum == number;
     }
 }
 
