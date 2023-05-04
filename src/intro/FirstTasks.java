@@ -32,4 +32,26 @@ public class FirstTasks {
             i++;
         }
     }
+
+    // - Take 2 numbers as inputs and find their HCF and LCM.
+    // We use the EUCLIDEAN Algorithm for this
+    public static int HCF(int num1, int num2){
+
+//        if (num2 == 0)
+//            return num1;
+//        else
+//            return HCF(num2, num1 % num2);
+
+        while (num2 != 0){
+            int temp = num2;
+            num2 = num1 % num2;
+            num1 = temp;
+        }
+        return num1;
+    }
+
+    public static int LCM(int num1, int num2){
+        int hcf = HCF(num1, num2);
+        return (num1 * num2) / hcf;
+    }
 }
