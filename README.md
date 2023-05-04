@@ -45,12 +45,12 @@ Check all the manual of this part in this link: [**Here**](src/intro/ThirdTask.j
 19. Curved Surface Area Of Cylinder
 20. Total Surface Area Of Cube
 21. Fibonacci Series In Java Programs
-22. Subtract the Product and Sum of Digits of an Integer
-23. Input a number and print all the factors of that number (use loops).
-24. Take integer inputs till the user enters 0 and print the sum of all numbers (HINT: while loop)
-25. Take integer inputs till the user enters 0 and print the largest number from all.
-26. Addition Of Two Numbers
-27. Intermediate Java Programs
+**22. Subtract the Product and Sum of Digits of an Integer**
+22. Input a number and print all the factors of that number (use loops).
+23. Take integer inputs till the user enters 0 and print the sum of all numbers (HINT: while loop)
+24. Take integer inputs till the user enters 0 and print the largest number from all.
+25. Addition Of Two Numbers 
+# Intermediate Java Programs
 28. Factorial Program In Java
 29. Calculate Electricity Bill
 30. Calculate Average Of N Numbers
