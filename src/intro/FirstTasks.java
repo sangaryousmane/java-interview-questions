@@ -18,4 +18,9 @@ public class FirstTasks {
             return false;
         }
     }
+
+    // Take two numbers and print the sum of both.
+    public static int sumOfTwoNumbers(int a, int b){
+        return a + b;
+    }
 }
