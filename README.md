@@ -1,5 +1,5 @@
 # Part I: Introduction to Java programming
-Check all the manual in this link: [Intro](src/intro)
+Check all the manual of this part in this link: [Intro](src/intro)
 # Questions:
 - Input a year and find whether it is a leap year or not.
 - Take two numbers and print the sum of both.
