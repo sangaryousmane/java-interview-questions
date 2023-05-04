@@ -1,5 +1,5 @@
 # Part I: Introduction to Java programming
-Check all the manual of this part in this link: [Intro](src/intro/FirstTasks.java)
+Check all the manual of this part in this link: [**Here**](src/intro/FirstTasks.java)
 # Questions:
 - Input a year and find whether it is a leap year or not.
 - Take two numbers and print the sum of both.
@@ -8,7 +8,7 @@ Check all the manual of this part in this link: [Intro](src/intro/FirstTasks.jav
 - Keep taking numbers as inputs till the user enters ‘x’, after that print sum of all.
 
 # PART II: Write Java programs for the following:
-Check all the manual of this part in this link: [Intro](src/intro/SecondTask.java)
+Check all the manual of this part in this link: [**Here**](src/intro/SecondTask.java)
 
 # Questions:
 - Write a program to print whether a number is even or odd, also take input from the user.

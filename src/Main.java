@@ -1,11 +1,9 @@
-import intro.FirstTasks;
-
-import static intro.FirstTasks.sum;
+import intro.SecondTask;
 
 public class Main {
 
     public static void main(String[] args) {
-        System.out.println("Sum of all numbers entered: "+ sum());
+       SecondTask.greetings();
     }
 
 }
