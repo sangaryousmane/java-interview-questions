@@ -130,7 +130,7 @@ public class ThirdTask {
     // Java Program Vowel Or Consonant
     public static int vowelOrConsonant(char letter) {
         if (isVowel(letter)){
-            System.out.println(letter + " is a vowel letter. ");
+            System.out.println(letter + " is a vowel letter.");
         }
         else {
             System.out.println(letter + " is a consonant letter");
