@@ -1,5 +1,7 @@
 package intro;
 
+import java.util.Scanner;
+
 public class FirstTasks {
 
     /**
@@ -53,5 +55,21 @@ public class FirstTasks {
     public static int LCM(int num1, int num2){
         int hcf = HCF(num1, num2);
         return (num1 * num2) / hcf;
+    }
+
+    //  Keep taking numbers as inputs till the user enters ‘x’, after that print sum of all.
+    public static int sum(){
+        int sum = 0;
+        Scanner scanner=new Scanner(System.in);
+
+        while (true){
+            System.out.println("Enter a number or x to exit");
+            String Input = scanner.nextLine();
+            if (Input.equals("x")) {
+                break;
+            }
+            sum += Integer.parseInt(Input);
+        }
+        return sum;
     }
 }
