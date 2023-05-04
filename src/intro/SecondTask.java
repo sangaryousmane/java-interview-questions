@@ -20,4 +20,43 @@ public class SecondTask {
         String name = scanner.nextLine();
         System.out.println("Hello, " + name);
     }
+
+    // - Write a program to input principal, time, and rate (P, T, R) from the user and find Simple Interest.
+    // Formula = (P * R * T) / 100
+    public static double simpleInterest(){
+        System.out.println("Enter Principle: ");
+        double P = scanner.nextDouble();
+        System.out.println("Enter Time: ");
+        double T = scanner.nextDouble();
+        System.out.println("Enter Rate: ");
+        double R = scanner.nextDouble();
+
+       return (P * R * T) / 100;
+    }
+
+    // - Take in two numbers and an operator (+, -, *, /) and calculate the value. (Use if conditions)
+    public static int getCalculations(int num1, int num2) throws Exception {
+        System.out.println("Enter an operator: ");
+        String c=scanner.nextLine();
+        char operator=c.charAt(0);
+        int result;
+        if (operator == '+'){
+            result = num1 + num2;
+        }
+        else if (operator == '*'){
+            result = num1 * num2;
+        }
+        else if (operator == '/'){
+            if (num2 > 0) {
+                result = num1 / num2;
+            }
+            else {
+                throw new Exception("Not divisible by 0. ");
+            }
+        }
+        else {
+            result = num1 - num2;
+        }
+        return result;
+    }
 }
