@@ -3,7 +3,12 @@ import intro.SecondTask;
 public class Main {
 
     public static void main(String[] args) throws Exception {
-        System.out.println("Answer is: "+ SecondTask.getCalculations(5, 5));
+        boolean isPal = SecondTask.isPalindrome("ypey");
+        if (isPal) {
+            System.out.println("It is palindrome");
+        } else {
+            System.out.println("It is not");
+        }
     }
 
 }

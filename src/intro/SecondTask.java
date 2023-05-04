@@ -59,4 +59,53 @@ public class SecondTask {
         }
         return result;
     }
+
+    //  Take 2 numbers as input and print the largest number.
+    public static int largest(int a, int b){
+
+        if (a != b) {
+            if (a > b) {
+                return a;
+            }
+            else {
+                return b;
+            }
+        }
+        return -1;
+    }
+
+    // - To calculate Fibonacci Series up to n numbers.
+    public static int fibonacciRecur(int n){
+        if (n <= 1){
+            return n;
+        }
+        return fibonacciRecur(n - 1) + fibonacciRecur(n - 2);
+    }
+
+    public static void fibonacciIterate(int n){
+        int a = 0, b = 1, i = 0;
+
+        while (i < n){
+            System.out.print(a + " ");
+            int temp = a + b;
+            a = b;
+            b = temp;
+            i++;
+        }
+    }
+
+    // To find out whether the given String is Palindrome or not.
+    public static boolean isPalindrome(String input){
+
+        int start = 0, end = input.length() - 1;
+
+        while (start < end){
+            if (input.charAt(start) != input.charAt(end)) {
+                return false;
+            }
+            start++; // Keep going towards the end string
+            end--;  // Keep going towards the start string
+        }
+        return true;
+    }
 }
