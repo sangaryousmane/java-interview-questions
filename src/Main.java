@@ -1,14 +1,10 @@
 import intro.SecondTask;
+import intro.ThirdTask;
 
 public class Main {
 
-    public static void main(String[] args) throws Exception {
-        boolean isPal = SecondTask.isPalindrome("ypey");
-        if (isPal) {
-            System.out.println("It is palindrome");
-        } else {
-            System.out.println("It is not");
-        }
+    public static void main(String[] args) {
+        System.out.println(ThirdTask.areaOfTriangle(10, 4));
     }
 
 }
