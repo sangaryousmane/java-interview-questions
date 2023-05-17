@@ -106,45 +106,7 @@ public class Searching {
         return -1;
     }
 
-    // Order agnostic binary Search
-    public static int orderAgnosticBinarySearch(int[] nums, int target) {
-        int start = 0, end = nums.length - 1;
 
-        boolean isAsc = nums[start] < nums[end];
-
-        while (start <= end) {
-            int mid = start + (end - start) / 2;
-
-            if (target == nums[mid])
-                return mid;
-
-            if (isAsc) {
-                if (target < nums[mid])
-                    end = mid - 1;
-                else
-                    start = mid + 1;
-            } else {
-                if (target > nums[mid])
-                    end = mid - 1;
-                else
-                    start = mid + 1;
-            }
-        }
-        return -1;
-    }
-
-    // Find if a given target is found in an array, return -1 if not found
-    // Use Linear search with the time complexity of: O(n)
-    public static int linearSearch(int[] nums, int target) {
-        int i = 0;
-        while (i < nums.length) {
-            if (nums[i] == target) {
-                return i;
-            }
-            i++;
-        }
-        return -1;
-    }
 
     // Check if a letter is found within a string
     public static boolean linearSearchString(String str, char target) {
