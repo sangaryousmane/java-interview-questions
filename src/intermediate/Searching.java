@@ -44,17 +44,16 @@ public class Searching {
 //                start++;
 //        }
 //        return ans;
-        int l = 0, r = nums.length - 1;
 
-        while (nums[l] + nums[r] != target) {
-            if (nums[l] + nums[r] < target) {
-                l++;
-            } else {
-                r--;
-            }
+        int start = 0, end = nums.length - 1;
+
+        while (nums[start] + nums[end] != target) {
+            if (nums[start] + nums[end] > target)
+                start++;
+            else
+                end--;
         }
-
-        return new int[]{l + 1, r + 1};
+        return new int[]{start + 1, end + 1};
     }
 
     // https://leetcode.com/problems/arranging-coins/
