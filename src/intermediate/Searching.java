@@ -44,16 +44,17 @@ public class Searching {
 //                start++;
 //        }
 //        return ans;
-
         int start = 0, end = nums.length - 1;
 
-        while (nums[start] + nums[end] != target) {
-            if (nums[start] + nums[end] > target)
-                start++;
-            else
+        while (nums[start] + nums[end] != target){
+            if (nums[start] + nums[end] > target){
                 end--;
+            }
+            else {
+                start++;
+            }
         }
-        return new int[]{start + 1, end + 1};
+        return new int[] {start+1, end+1};
     }
 
     // https://leetcode.com/problems/arranging-coins/
@@ -282,5 +283,26 @@ public class Searching {
             }
         }
         return -1;
+    }
+
+
+    // https://leetcode.com/problems/valid-perfect-square/
+    public static boolean isPerfectSquare(int num) {
+        int start = 1, end = num;
+
+        while(start <= end){
+            int mid = start + (end - start) / 2;
+
+            if ((mid * mid) == num){
+                return true;
+            }
+            else if ((mid * mid) > num){
+                end = mid - 1;
+            }
+            else{
+                start = mid + 1;
+            }
+        }
+        return false;
     }
 }
