@@ -46,26 +46,43 @@ public class Searching {
 //        return ans;
         int start = 0, end = nums.length - 1;
 
-        while (nums[start] + nums[end] != target){
-            if (nums[start] + nums[end] > target){
+        while (nums[start] + nums[end] != target) {
+            if (nums[start] + nums[end] > target) {
                 end--;
-            }
-            else {
+            } else {
                 start++;
             }
         }
-        return new int[] {start+1, end+1};
+        return new int[]{start + 1, end + 1};
     }
 
     // https://leetcode.com/problems/arranging-coins/
     public static int arrangeCoins(int n) {
-        int i = 1;
+//        int i = 1;
+//
+//        while (n > 0) {
+//            i++;
+//            n -= i;
+//        }
+//        return i - 1;
 
-        while (n > 0) {
-            i++;
-            n -= i;
+        long left = 0, end = n;
+        long current, middle;
+
+        while (left <= end) {
+            middle = left + (end - left);
+            current = middle * (middle + 1) / 2;
+
+            if (n == current)
+                return (int) current;
+
+            else if (n < current) {
+                end = middle - 1;
+            } else {
+                left = middle + 1;
+            }
         }
-        return i - 1;
+        return (int) end;
     }
 
     // https://leetcode.com/problems/find-smallest-letter-greater-than-target
@@ -109,9 +126,11 @@ public class Searching {
     public static int orderAgnosticBinarySearch(int[] nums, int target) {
         int start = 0, end = nums.length - 1;
 
+        // It is ascending if the start is less than the end
         boolean isAsc = nums[start] < nums[end];
 
         while (start <= end) {
+            // To avoid int overflow
             int mid = start + (end - start) / 2;
 
             if (target == nums[mid])
@@ -290,19 +309,35 @@ public class Searching {
     public static boolean isPerfectSquare(int num) {
         int start = 1, end = num;
 
-        while(start <= end){
+        while (start <= end) {
             int mid = start + (end - start) / 2;
 
-            if ((mid * mid) == num){
+            if ((mid * mid) == num) {
                 return true;
-            }
-            else if ((mid * mid) > num){
+            } else if ((mid * mid) > num) {
                 end = mid - 1;
-            }
-            else{
+            } else {
                 start = mid + 1;
             }
         }
         return false;
+    }
+
+    // https://leetcode.com/problems/kth-missing-positive-number/description/
+    public static int kthMissingPositiveNumber(int arr[], int k) {
+        int start = 0, end = arr.length;
+
+        while (end > start) {
+            int middle = start + (end - start) / 2;
+            int missing = arr[middle] - 1 - middle;
+
+            if (k <= missing){
+                end = middle;
+            }
+            else{
+                start = middle+1;
+            }
+        }
+        return end + k;
     }
 }
