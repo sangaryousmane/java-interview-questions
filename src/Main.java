@@ -10,9 +10,9 @@ public class Main {
 
     public static void main(String[] args) {
 
-        int []numbers = {2,7,11,15}; //  9 == 9
-        int target = 16;
-       boolean result = Searching.isPerfectSquare(target);
+        int[] arr = {2, 3, 4, 7, 11};
+        int target = 5;
+        int result = Searching.kthMissingPositiveNumber(arr, target);
         System.out.println(result);
 
 //       int n = 7;

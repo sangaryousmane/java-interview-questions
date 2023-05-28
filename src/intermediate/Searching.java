@@ -324,6 +324,7 @@ public class Searching {
     }
 
     // https://leetcode.com/problems/kth-missing-positive-number/description/
+    // O(log n)
     public static int kthMissingPositiveNumber(int arr[], int k) {
         int start = 0, end = arr.length;
 
@@ -339,5 +340,25 @@ public class Searching {
             }
         }
         return end + k;
+    }
+
+    // https://leetcode.com/problems/search-insert-position/
+    public static int searchInsertPosition(int [] arr, int target){
+        int start = 0, end = arr.length - 1;
+
+        while (start <= end){
+            int middle = start + (end - start) / 2;
+
+            if (arr[middle] == target){
+                return middle;
+            }
+            else if (arr[middle] < target){
+                start = middle + 1;
+            }
+            else{
+                end = middle - 1;
+            }
+        }
+        return start;
     }
 }
