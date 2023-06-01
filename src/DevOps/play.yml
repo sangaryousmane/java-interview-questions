@@ -1,0 +1,30 @@
+
+# Languages
+- Python
+- Java
+- Go
+- JavaScript
+
+---
+cities:
+  - Beijing
+  - Shanghai
+  - Wuhan
+
+# Write multiple lines as single line
+mimic: > 
+  sldndnndndnd
+  dnnfndnd
+  mdndnnd
+  jjfjfs
+  fkfkfk
+
+# specify data types
+ten: !!int 10
+negative: !!int -1
+octal: !!int 01978
+
+# Nullity
+username: !!null Null
+
+
