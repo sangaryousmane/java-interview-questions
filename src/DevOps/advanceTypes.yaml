@@ -30,3 +30,18 @@ names: !!set
   ? Peter
 
 ## !!omap
+
+# Anchors for reusing properties with &base
+likings: &likes
+  favFruits: Mango
+  dislikes: guava
+
+person1:
+  name: John
+  <<: *likes
+
+person2:
+  name: Peter
+  <<: *likes
+  dislikes: Samson
+
