@@ -1,0 +1,32 @@
+# Nested sequence
+
+-
+ - plums
+ - grapes
+-
+  - Lemon
+  - Ahhe
+
+# Maps in yaml
+student: Ousmane Sangary
+role:
+  job:
+    - DevOps
+    - MLOps
+  age: 24
+
+# same as
+student: Ousmane Sangary
+role: {job: [DevOps, MLOps], age: 24}
+
+# !!pairs allow you to have pairs
+pairMatch: !!pairs [job: student, job: teacher]
+
+# !!set allows you to have unique values
+names: !!set
+  ? Ousmane
+  ? Ousmane
+  ? John
+  ? Peter
+
+## !!omap
