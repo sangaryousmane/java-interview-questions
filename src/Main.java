@@ -11,10 +11,10 @@ public class Main {
 
     public static void main(String[] args) {
 
-        int[] arr = {0, 2, 1, 5, 3, 4};
+        int[][] arr = {{1, 5}, {7, 3}, {3, 5}};
         int target = 5;
-        int []result = ArraysHub.permutationBuildArray(arr);
-        System.out.println(Arrays.toString(result));
+        int result = ArraysHub.maximumWealth(arr);
+        System.out.println(result);
 
     }
 
