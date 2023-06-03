@@ -1,4 +1,5 @@
 
+import intermediate.ArraysHub;
 import intermediate.Searching;
 
 import intro.FourthTasks;
@@ -10,13 +11,10 @@ public class Main {
 
     public static void main(String[] args) {
 
-        int[] arr = {2, 3, 4, 7, 11};
+        int[] arr = {0, 2, 1, 5, 3, 4};
         int target = 5;
-        int result = Searching.kthMissingPositiveNumber(arr, target);
-        System.out.println(result);
-
-//       int n = 7;
-//        System.out.println(FourthTasks.isPrime(n));
+        int []result = ArraysHub.permutationBuildArray(arr);
+        System.out.println(Arrays.toString(result));
 
     }
 
