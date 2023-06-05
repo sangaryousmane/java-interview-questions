@@ -1,2 +1,1 @@
-#!/bin/bash
-echo "Hi, I am triggled from github"
+echo "Seems like it is working"
