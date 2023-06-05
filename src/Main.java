@@ -1,4 +1,5 @@
 import intermediate.ArraysHub;
+import intermediate.Searching;
 
 import java.util.Arrays;
 
@@ -6,10 +7,10 @@ public class Main {
 
     public static void main(String[] args) {
 
-        int[] arr = {8, 1, 2, 2, 3};
+        int[] arr = {1,2,4,5};
         int target = 3;
-        int[] result = ArraysHub.smallerNumberThanCurrent(arr);
-        System.out.println(Arrays.toString(result));
+        int result = Searching.searchInsertPosition(arr, target);
+        System.out.println(result);
     }
 
 

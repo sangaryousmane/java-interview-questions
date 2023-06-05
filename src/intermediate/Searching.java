@@ -343,6 +343,7 @@ public class Searching {
     }
 
     // https://leetcode.com/problems/search-insert-position/
+    // Same as ceiling of  a number, we return start when not found
     public static int searchInsertPosition(int [] arr, int target){
         int start = 0, end = arr.length - 1;
 
@@ -360,5 +361,29 @@ public class Searching {
             }
         }
         return start;
+    }
+
+    /*
+    Find floor of a number in an order number arrays
+    Same as binary or ceiling, but just return end when the target isn't found.
+    Floor is the greatest number that is smaller or equal to the target number.
+     */
+    public static int floorOfNumber(int[] nums, int target){
+        int start = 0, end = nums.length - 1;
+
+        while (start <= end){
+            int middle = start + (end - start) / 2;
+
+            if (nums[middle] == target){
+                return middle;
+            }
+            else if (nums[middle] < target){
+                start = middle + 1;
+            }
+            else{
+                end = middle - 1;
+            }
+        }
+        return end;
     }
 }
