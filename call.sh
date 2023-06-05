@@ -1,1 +1,1 @@
-echo "Amazingly amazing"
+echo "Amazingly"
