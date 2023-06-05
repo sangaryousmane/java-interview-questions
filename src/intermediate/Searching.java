@@ -374,7 +374,7 @@ public class Searching {
     // https://leetcode.com/problems/find-smallest-letter-greater-than-target/description/
     public static char nextGreatestLetter(char[] letters, char target){
         int n = letters.length; // Length of the character array
-        int start = 0, end = n - 1;
+        int start = 0, end = n -  1;
 
         while (start <= end){
             int middle = start + (end - start) / 2;
