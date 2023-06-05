@@ -1,1 +1,1 @@
-echo "Amazing work so far!"
+echo "Amazingly amazing"
