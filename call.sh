@@ -1,1 +1,1 @@
-echo "Amazingly"
+echo "Seems like it is working"
