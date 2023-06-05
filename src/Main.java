@@ -7,9 +7,9 @@ public class Main {
 
     public static void main(String[] args) {
 
-        int[] arr = {1,2,4,5};
-        int target = 3;
-        int result = Searching.searchInsertPosition(arr, target);
+        char[] arr = {'x','x','y', 'y'};
+        char target = 'x';
+        char result = Searching.nextGreatestLetter(arr, target);
         System.out.println(result);
     }
 

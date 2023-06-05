@@ -85,24 +85,6 @@ public class Searching {
         return (int) end;
     }
 
-    // https://leetcode.com/problems/find-smallest-letter-greater-than-target
-    public char nextGreatestLetter(char[] letters, char target) {
-        int start = 0;
-        int end = letters.length - 1;
-        char ans = letters[0];
-
-        while (start <= end) {
-            int middle = start + (end - start) / 2;
-
-            if ((letters[middle] == target) || (target > letters[middle])) {
-                start = middle + 1;
-            } else if (letters[middle] > target) {
-                ans = letters[middle];
-                end = middle - 1;
-            }
-        }
-        return ans;
-    }
 
     // https://leetcode.com/problems/binary-search/
     public static int binarySearch(int[] nums, int target) {
@@ -347,6 +329,9 @@ public class Searching {
     public static int searchInsertPosition(int [] arr, int target){
         int start = 0, end = arr.length - 1;
 
+        if (target > arr[end]){
+            return  -1;
+        }
         while (start <= end){
             int middle = start + (end - start) / 2;
 
@@ -386,4 +371,22 @@ public class Searching {
         }
         return end;
     }
+    // https://leetcode.com/problems/find-smallest-letter-greater-than-target/description/
+    public static char nextGreatestLetter(char[] letters, char target){
+        int n = letters.length; // Length of the character array
+        int start = 0, end = n - 1;
+
+        while (start <= end){
+            int middle = start + (end - start) / 2;
+
+            if (letters[middle] > target){
+                end = middle - 1;
+            }
+            else{
+                start = middle + 1;
+            }
+        }
+        return letters[start % n];
+    }
+
 }
