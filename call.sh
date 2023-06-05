@@ -1,2 +1,1 @@
-#!/bin/bash
-echo "Amazing!"
+echo "Amazing work so far!"
