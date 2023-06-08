@@ -411,4 +411,25 @@ public class Searching {
         }
         return -1;
     }
+    // https://leetcode.com/problems/count-negative-numbers-in-a-sorted-matrix/description/
+    public static int countNegativeNumbers(int[][] nums){
+        int count = 0;
+
+        for (int i = 0; i < nums.length; i++){
+            int start = 0, end = nums[i].length - 1;
+
+            while (start <= end){
+                int middle = start + (end - start) / 2;
+
+                if (nums[i][middle] < 0){
+                    count += start - middle + 1;
+                    end = middle - 1;
+                }
+                else{
+                    start = middle + 1;
+                }
+            }
+        }
+        return count;
+    }
 }

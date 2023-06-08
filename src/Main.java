@@ -7,9 +7,8 @@ public class Main {
 
     public static void main(String[] args) {
 
-        char[] arr = {'x','x','y', 'y'};
-        char target = 'x';
-        char result = Searching.nextGreatestLetter(arr, target);
+        int[][] arr = {{4,3,2,-1},{3,2,1,-1}};
+        int result = Searching.countNegativeNumbers(arr);
         System.out.println(result);
     }
 
