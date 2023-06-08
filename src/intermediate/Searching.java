@@ -386,7 +386,29 @@ public class Searching {
                 start = middle + 1;
             }
         }
-        return letters[start % n];
+        return letters[start % n]; // Get the index of start and length modulus
     }
 
+    // https://leetcode.com/problems/special-array-with-x-elements-greater-than-or-equal-x/description/
+    public static int specialArray(int [] nums){
+        int end = nums.length;
+        int start = 0;
+
+        while (start <= end){
+            int middle = start + (end - start) / 2;
+            int count = 0;
+
+            for (int i = 0; i< nums.length; i++){
+                if (nums[i] >= middle)
+                    count++;
+            }
+            if (count == middle)
+                return middle;
+            else if (count < middle)
+                end = middle-1;
+            else
+                start = middle + 1;
+        }
+        return -1;
+    }
 }
