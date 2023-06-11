@@ -1,5 +1,6 @@
 package intermediate;
 
+
 public class Searching {
 
 
@@ -167,7 +168,7 @@ public class Searching {
     }
 
     // Search for a target in a range of a specific index
-    public static int searchInRange(int[] nums, int start, int end, int target) {
+    public static int searchInRangeMinMax(int[] nums, int start, int end, int target) {
 
         for (int i = start; i <= end; i++) {
             if (nums[i] == target) {
@@ -314,11 +315,10 @@ public class Searching {
             int middle = start + (end - start) / 2;
             int missing = arr[middle] - 1 - middle;
 
-            if (k <= missing){
+            if (k <= missing) {
                 end = middle;
-            }
-            else{
-                start = middle+1;
+            } else {
+                start = middle + 1;
             }
         }
         return end + k;
@@ -326,22 +326,20 @@ public class Searching {
 
     // https://leetcode.com/problems/search-insert-position/
     // Same as ceiling of  a number, we return start when not found
-    public static int searchInsertPosition(int [] arr, int target){
+    public static int searchInsertPosition(int[] arr, int target) {
         int start = 0, end = arr.length - 1;
 
-        if (target > arr[end]){
-            return  -1;
+        if (target > arr[end]) {
+            return -1;
         }
-        while (start <= end){
+        while (start <= end) {
             int middle = start + (end - start) / 2;
 
-            if (arr[middle] == target){
+            if (arr[middle] == target) {
                 return middle;
-            }
-            else if (arr[middle] < target){
+            } else if (arr[middle] < target) {
                 start = middle + 1;
-            }
-            else{
+            } else {
                 end = middle - 1;
             }
         }
@@ -353,36 +351,34 @@ public class Searching {
     Same as binary or ceiling, but just return end when the target isn't found.
     Floor is the greatest number that is smaller or equal to the target number.
      */
-    public static int floorOfNumber(int[] nums, int target){
+    public static int floorOfNumber(int[] nums, int target) {
         int start = 0, end = nums.length - 1;
 
-        while (start <= end){
+        while (start <= end) {
             int middle = start + (end - start) / 2;
 
-            if (nums[middle] == target){
+            if (nums[middle] == target) {
                 return middle;
-            }
-            else if (nums[middle] < target){
+            } else if (nums[middle] < target) {
                 start = middle + 1;
-            }
-            else{
+            } else {
                 end = middle - 1;
             }
         }
         return end;
     }
-    // https://leetcode.com/problems/find-smallest-letter-greater-than-target/description/
-    public static char nextGreatestLetter(char[] letters, char target){
-        int n = letters.length; // Length of the character array
-        int start = 0, end = n -  1;
 
-        while (start <= end){
+    // https://leetcode.com/problems/find-smallest-letter-greater-than-target/description/
+    public static char nextGreatestLetter(char[] letters, char target) {
+        int n = letters.length; // Length of the character array
+        int start = 0, end = n - 1;
+
+        while (start <= end) {
             int middle = start + (end - start) / 2;
 
-            if (letters[middle] > target){
+            if (letters[middle] > target) {
                 end = middle - 1;
-            }
-            else{
+            } else {
                 start = middle + 1;
             }
         }
@@ -390,46 +386,78 @@ public class Searching {
     }
 
     // https://leetcode.com/problems/special-array-with-x-elements-greater-than-or-equal-x/description/
-    public static int specialArray(int [] nums){
+    public static int specialArray(int[] nums) {
         int end = nums.length;
         int start = 0;
 
-        while (start <= end){
+        while (start <= end) {
             int middle = start + (end - start) / 2;
             int count = 0;
 
-            for (int i = 0; i< nums.length; i++){
+            for (int i = 0; i < nums.length; i++) {
                 if (nums[i] >= middle)
                     count++;
             }
             if (count == middle)
                 return middle;
             else if (count < middle)
-                end = middle-1;
+                end = middle - 1;
             else
                 start = middle + 1;
         }
         return -1;
     }
+
     // https://leetcode.com/problems/count-negative-numbers-in-a-sorted-matrix/description/
-    public static int countNegativeNumbers(int[][] nums){
+    public static int countNegativeNumbers(int[][] nums) {
         int count = 0;
 
-        for (int i = 0; i < nums.length; i++){
+        for (int i = 0; i < nums.length; i++) {
             int start = 0, end = nums[i].length - 1;
 
-            while (start <= end){
+            while (start <= end) {
                 int middle = start + (end - start) / 2;
 
-                if (nums[i][middle] < 0){
+                if (nums[i][middle] < 0) {
                     count += start - middle + 1;
                     end = middle - 1;
-                }
-                else{
+                } else {
                     start = middle + 1;
                 }
             }
         }
         return count;
+    }
+
+    // https://leetcode.com/problems/find-first-and-last-position-of-element-in-sorted-array/
+    public static int[] searchInRange(int[] nums, int target) {
+
+        int[] ans = new int[2];
+        ans[0] = firstAndLastPosition1(nums, target, true);
+        ans[1] = firstAndLastPosition1(nums, target, false);
+        return ans;
+    }
+
+    private static int firstAndLastPosition1(int[] nums, int target, boolean firstOccurence) {
+        int start = 0, end = nums.length - 1;
+        int ans = -1;
+        while (start <= end){
+            int mid = start + (end - start) / 2;
+
+            if (nums[mid] > target) {
+                end = mid - 1;
+            }
+            else if (nums[mid] < target) {
+                start = mid + 1;
+            }
+            else {
+                ans = end;
+                if (firstOccurence)
+                    ans = mid - 1;
+                else
+                    ans = mid + 1;
+            }
+        }
+        return ans;
     }
 }

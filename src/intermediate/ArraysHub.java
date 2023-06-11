@@ -5,7 +5,7 @@ import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
 
-public class ArraysHub {
+public class ArraysHub{
 
     // Build Array from Permutation
     // https://leetcode.com/problems/build-array-from-permutation/
