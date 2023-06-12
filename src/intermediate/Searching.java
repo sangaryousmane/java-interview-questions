@@ -432,7 +432,7 @@ public class Searching {
     // https://leetcode.com/problems/find-first-and-last-position-of-element-in-sorted-array/
     public static int[] searchInRange(int[] nums, int target) {
 
-        int[] ans = new int[2];
+        int[] ans = {-1, -1};
         ans[0] = firstAndLastPosition1(nums, target, true);
         ans[1] = firstAndLastPosition1(nums, target, false);
         return ans;
@@ -451,13 +451,46 @@ public class Searching {
                 start = mid + 1;
             }
             else {
-                ans = end;
+                ans = mid;
                 if (firstOccurence)
-                    ans = mid - 1;
+                    end = mid - 1; // go to left to check if there is still remaining
                 else
-                    ans = mid + 1;
+                    start = mid + 1; // go to right
             }
         }
         return ans;
+    }
+
+    // https://www.geeksforgeeks.org/find-position-element-sorted-array-infinite-numbers/
+    // Double the size of the array until the target position if found
+    public static int elementOfInfiniteArray(int[] nums, int target){
+        // first find the range
+        // first start with a box of size 2
+        int start = 0;
+        int end = 1;
+
+        // condition for the target to lie in the range
+        while (target > nums[end]){
+            int temp = end + 1; // Our new start position
+
+            end = end + (end - start + 1) * 2; // double the size
+            start = temp;
+        }
+        return binarySearch(nums, target, start, end);
+    }
+
+    private static int binarySearch(int[] nums, int target, int start, int end){
+
+        while (start <= end){
+            int middle = start + (end - start) / 2;
+
+            if (nums[middle] == target)
+                return middle;
+            else if (nums[middle] > target)
+                end = middle - 1;
+            else
+                start = middle + 1;
+        }
+        return -1;
     }
 }
