@@ -438,7 +438,28 @@ public class Searching {
         return ans;
     }
 
+    private static int firstAndLastPosition1(int[] nums, int target, boolean firstOccurence) {
+        int start = 0, end = nums.length - 1;
+        int ans = -1;
+        while (start <= end){
+            int mid = start + (end - start) / 2;
 
+            if (nums[mid] > target) {
+                end = mid - 1;
+            }
+            else if (nums[mid] < target) {
+                start = mid + 1;
+            }
+            else {
+                ans = mid;
+                if (firstOccurence)
+                    end = mid - 1; // go to left to check if there is still remaining
+                else
+                    start = mid + 1; // go to right
+            }
+        }
+        return ans;
+    }
 
     // https://www.geeksforgeeks.org/find-position-element-sorted-array-infinite-numbers/
     // Double the size of the array until the target position if found
