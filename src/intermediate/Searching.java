@@ -462,7 +462,9 @@ public class Searching {
     }
 
     // https://www.geeksforgeeks.org/find-position-element-sorted-array-infinite-numbers/
+    // Find position of an element in a sorted array of infinite numbers
     // Double the size of the array until the target position if found
+    // [3, 4, 5, 6, 7, 8] target = 6
     public static int elementOfInfiniteArray(int[] nums, int target){
         // first find the range
         // then start with a box of size 2
@@ -471,9 +473,10 @@ public class Searching {
 
         // condition for the target to lie in the range
         while (target > nums[end]){
-            int temp = end + 1; // Our new start position
+            int temp = end + 1; // Our new start position number 2
 
-            end = end + (end - start + 1) * 2; // double the size
+            end = end + (end - start + 1) * 2;
+            // double the size
             start = temp;
         }
         return binarySearch(nums, target, start, end);
