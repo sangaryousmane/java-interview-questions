@@ -76,7 +76,6 @@ public class Searching {
 
             if (n == current)
                 return (int) current;
-
             else if (n < current) {
                 end = middle - 1;
             } else {
