@@ -1,3 +1,6 @@
+# How to work with this repository
+- Clone the repository from here `https://github.com/sangaryousmane/java-interview-questions.git`
+- Navigate into the /src directory if you need answers to all the questions but make sure to try the questions on your own first
 # Part I: Introduction to Java programming
 Check all the manual of this part in this link: [**Here**](src/intro/FirstTasks.java)
 # Questions:
