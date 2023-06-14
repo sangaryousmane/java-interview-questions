@@ -518,6 +518,7 @@ public class Searching {
         return ans;
     }
 
+    // This check if the target element is found in the array
     private static boolean isFound(int[]nums, int target){
         int start = 0, end = nums.length - 1;
 
