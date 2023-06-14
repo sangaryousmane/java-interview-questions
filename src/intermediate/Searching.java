@@ -1,7 +1,10 @@
 package intermediate;
 
 
+import java.util.Arrays;
+import java.util.HashSet;
 import java.util.List;
+import java.util.Set;
 
 public class Searching {
 
@@ -496,5 +499,38 @@ public class Searching {
                 start = middle + 1;
         }
         return -1;
+    }
+
+    // https://leetcode.com/problems/intersection-of-two-arrays/submissions/
+    public static int[] intersectionOfArrays(int[]nums1, int[]nums2){
+        Set<Integer> common=new HashSet<>();
+
+        Arrays.sort(nums2);
+        for (Integer num: nums1){
+            if (isFound(nums2, num))
+                common.add(num);
+        }
+        int j = 0;
+        int[] ans=new int[common.size()];
+        for (Integer i: common){
+            ans[j++] = i;
+        }
+        return ans;
+    }
+
+    private static boolean isFound(int[]nums, int target){
+        int start = 0, end = nums.length - 1;
+
+        while (start <= end){
+            int mid=start + (end - start) / 2;
+
+            if (nums[mid] == target)
+                return true;
+            else if (nums[mid] > target)
+                end = mid - 1;
+            else
+                start = mid + 1;
+        }
+        return false;
     }
 }
