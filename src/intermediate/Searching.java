@@ -445,16 +445,14 @@ public class Searching {
     private static int firstAndLastPosition1(int[] nums, int target, boolean firstOccurence) {
         int start = 0, end = nums.length - 1;
         int ans = -1;
-        while (start <= end){
+        while (start <= end) {
             int mid = start + (end - start) / 2;
 
             if (nums[mid] > target) {
                 end = mid - 1;
-            }
-            else if (nums[mid] < target) {
+            } else if (nums[mid] < target) {
                 start = mid + 1;
-            }
-            else {
+            } else {
                 ans = mid;
                 if (firstOccurence)
                     end = mid - 1; // go to left to check if there is still remaining
@@ -469,14 +467,14 @@ public class Searching {
     // Find position of an element in a sorted array of infinite numbers
     // Double the size of the array until the target position if found
     // [3, 4, 5, 6, 7, 8] target = 6
-    public static int elementOfInfiniteArray(int[] nums, int target){
+    public static int elementOfInfiniteArray(int[] nums, int target) {
         // first find the range
         // then start with a box of size 2
         int start = 0;
         int end = 1;
 
         // condition for the target to lie in the range
-        while (target > nums[end]){
+        while (target > nums[end]) {
             int temp = end + 1; // Our new start position number 2
 
             end = end + (end - start + 1) * 2;
@@ -486,9 +484,9 @@ public class Searching {
         return binarySearch(nums, target, start, end);
     }
 
-    private static int binarySearch(int[] nums, int target, int start, int end){
+    private static int binarySearch(int[] nums, int target, int start, int end) {
 
-        while (start <= end){
+        while (start <= end) {
             int middle = start + (end - start) / 2;
 
             if (nums[middle] == target)
@@ -502,28 +500,28 @@ public class Searching {
     }
 
     // https://leetcode.com/problems/intersection-of-two-arrays/submissions/
-    public static int[] intersectionOfArrays(int[]nums1, int[]nums2){
-        Set<Integer> common=new HashSet<>();
+    public static int[] intersectionOfArrays(int[] nums1, int[] nums2) {
+        Set<Integer> common = new HashSet<>();
 
         Arrays.sort(nums2);
-        for (Integer num: nums1){
+        for (Integer num : nums1) {
             if (isFound(nums2, num))
                 common.add(num);
         }
         int j = 0;
-        int[] ans=new int[common.size()];
-        for (Integer i: common){
+        int[] ans = new int[common.size()];
+        for (Integer i : common) {
             ans[j++] = i;
         }
         return ans;
     }
 
     // This check if the target element is found in the array
-    private static boolean isFound(int[]nums, int target){
+    private static boolean isFound(int[] nums, int target) {
         int start = 0, end = nums.length - 1;
 
-        while (start <= end){
-            int mid=start + (end - start) / 2;
+        while (start <= end) {
+            int mid = start + (end - start) / 2;
 
             if (nums[mid] == target)
                 return true;
@@ -533,5 +531,22 @@ public class Searching {
                 start = mid + 1;
         }
         return false;
+    }
+
+    // https://leetcode.com/problems/find-peak-element/
+    public static int peakMountain(int[] nums) {
+        int start = 0, end = nums.length - 1;
+
+        while (start < end){
+            int middle = start + (end - start) / 2;
+
+            if (nums[middle] > nums[middle+1]){
+                end = middle; // Decreasing order
+            }
+            else{
+                start = middle + 1; // Increasing order
+            }
+        }
+        return start;
     }
 }
