@@ -503,10 +503,10 @@ public class Searching {
     public static int[] intersectionOfArrays(int[] nums1, int[] nums2) {
         Set<Integer> common = new HashSet<>();
 
-        Arrays.sort(nums2);
+        Arrays.sort(nums2); // Sort the second set of elements
         for (Integer num : nums1) {
-            if (isFound(nums2, num))
-                common.add(num);
+            if (isFound(nums2, num)) // apply the array u sort to BS
+                common.add(num); // Add to the set if there's similarity
         }
         int j = 0;
         int[] ans = new int[common.size()];
@@ -548,5 +548,27 @@ public class Searching {
             }
         }
         return start;
+    }
+
+    // https://leetcode.com/problems/fair-candy-swap/description/
+    public int[] fairCandySwap(int[] aliceSizes, int[] bobSizes){
+        int aliceTotal = 0, bobTotal = 0;
+
+        for (int aliceCandy: aliceSizes)
+             aliceTotal +=aliceCandy;
+
+        Set<Integer> bobCandySizes=new HashSet<>();
+        for (int bobCandy: bobSizes) {
+            bobTotal += bobCandy;
+            bobCandySizes.add(bobCandy);
+        }
+
+        int diffOfCandies=(bobTotal - aliceTotal) / 2;
+        for (int alice: aliceSizes){
+            if (bobCandySizes.contains(alice+diffOfCandies)){
+                return new int[]{alice, alice + diffOfCandies};
+            }
+        }
+        return null;
     }
 }
