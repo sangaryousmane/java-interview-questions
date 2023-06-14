@@ -551,7 +551,7 @@ public class Searching {
     }
 
     // https://leetcode.com/problems/fair-candy-swap/description/
-    public int[] fairCandySwap(int[] aliceSizes, int[] bobSizes){
+    public static int[] fairCandySwap(int[] aliceSizes, int[] bobSizes){
         int aliceTotal = 0, bobTotal = 0;
 
         for (int aliceCandy: aliceSizes)
@@ -563,10 +563,11 @@ public class Searching {
             bobCandySizes.add(bobCandy);
         }
 
+        // Search for the pair of candies
         int diffOfCandies=(bobTotal - aliceTotal) / 2;
         for (int alice: aliceSizes){
             if (bobCandySizes.contains(alice+diffOfCandies)){
-                return new int[]{alice, alice + diffOfCandies};
+                return new int[]{alice, alice+diffOfCandies};
             }
         }
         return null;

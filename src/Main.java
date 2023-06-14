@@ -8,8 +8,9 @@ public class Main {
     public static void main(String[] args) {
 
         int[] arr = {1, 2, 3, 1};
-        int result = Searching.peakMountain(arr);
-        System.out.println(result);
+        int[]aliceSizes = {2}, bobSizes = {1,3};
+        int[] result = Searching.fairCandySwap(aliceSizes, bobSizes);
+        System.out.println(Arrays.toString(result));
     }
 
 
