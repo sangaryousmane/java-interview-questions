@@ -1,13 +1,13 @@
 
 import intermediate.FindInMountain;
+import maharishi.CodingTests;
 
 public class Main {
     public static void main(String[] args) {
 
-        int[] arr = {0, 1, 2, 4, 2, 1};
+        int[] arr = {10};
         int target = 2;
-        int result = FindInMountain.findInMountainArray(
-                3, arr);
+        int result = CodingTests.smallestOfOddNumArray(arr);
         System.out.println(result);
     }
 
