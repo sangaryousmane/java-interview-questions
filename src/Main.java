@@ -9,7 +9,7 @@ public class Main {
 
         char[] arr = {'a', 'b', 'c'};
         int target = 2;
-        char[] result = CodingTests.startToLength(arr, 1, 3);
+        char[] result = CodingTests.startToLength(arr, 1, 1);
         System.out.println(Arrays.toString(result));
     }
 

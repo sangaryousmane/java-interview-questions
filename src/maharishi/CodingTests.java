@@ -64,7 +64,6 @@ public class CodingTests {
         for (int i = start; i < right; i++){
             sub[i - start] = letters[i];
         }
-
         return sub;
     }
 }
