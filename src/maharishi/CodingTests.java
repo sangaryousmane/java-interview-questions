@@ -30,4 +30,24 @@ public class CodingTests {
         return 1;
     }
 
+    // Find the difference of sum of even and odd numbers in an array
+    public static int sumOfEvenOdd(int[] nums){
+        // Check if the array is null, return 0
+        // Get the sum of even and odd
+        // return the difference between them
+        int i = 0;
+        int sumOfEven = 0, sumOfOdd = 0;
+        if (nums == null || nums.length == 0)
+            return 0;
+
+        while (i < nums.length){
+            if (nums[i] % 2 == 0)
+                sumOfEven +=nums[i];
+            else
+                sumOfOdd +=nums[i];
+            i++;
+        }
+        // odd = X, even = Y so, X - Y
+        return sumOfOdd - sumOfEven;
+    }
 }

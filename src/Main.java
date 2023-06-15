@@ -5,9 +5,9 @@ import maharishi.CodingTests;
 public class Main {
     public static void main(String[] args) {
 
-        int[] arr = {10};
+        int[] arr = {};
         int target = 2;
-        int result = CodingTests.smallestOfOddNumArray(arr);
+        int result = CodingTests.sumOfEvenOdd(arr);
         System.out.println(result);
     }
 
