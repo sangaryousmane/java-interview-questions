@@ -50,4 +50,21 @@ public class CodingTests {
         // odd = X, even = Y so, X - Y
         return sumOfOdd - sumOfEven;
     }
+
+    // Find the set of character arrays that contains length of characters
+    // starting at the start index (zero-based)
+    public static char[] startToLength(char[] letters, int start, int length){
+
+        if (length < 0 || start < 0 ||
+                start + length-1 >= letters.length){
+            return null;
+        }
+        char[] sub=new char[length];
+        int right = start + length; // apply sliding window
+        for (int i = start; i < right; i++){
+            sub[i - start] = letters[i];
+        }
+
+        return sub;
+    }
 }
