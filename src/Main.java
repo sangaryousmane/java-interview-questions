@@ -7,9 +7,9 @@ import java.util.Arrays;
 public class Main {
     public static void main(String[] args) {
 
-        char[] arr = {'a', 'b', 'c'};
-        int target = 2;
-        char[] result = CodingTests.startToLength(arr, 1, 1);
+        int[] arr1 = {1,2};
+        int[] arr2 = null;
+        int[] result = CodingTests.commonToArrays(arr1, arr2);
         System.out.println(Arrays.toString(result));
     }
 
