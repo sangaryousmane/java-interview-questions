@@ -1,5 +1,6 @@
 
 import oops.ProductionWorker;
+import oops.ShiftSupervisor;
 
 import java.util.ArrayList;
 import java.util.Date;
@@ -8,6 +9,22 @@ import java.util.concurrent.atomic.AtomicReference;
 
 public class Main {
     public static void main(String[] args) {
+
+        ShiftSupervisor s=new ShiftSupervisor();
+        s.setGoalMet(true);
+        s.setEmployeeName("Ousmane");
+        s.setEmployeeNumber("19019198829-MR");
+        s.setAnnualSalary(8000.0);
+        s.setHireDate(new Date());
+
+        if (s.isGoalMet()){
+            s.setBonus(100.0);
+        }
+        else {
+            s.setBonus(0.0);
+        }
+        s.setAnnualSalary(s.getAnnualSalary() + (s.getBonus() * 12));
+        System.out.println(s);
 
         List<ProductionWorker> workers = new ArrayList<>();
         ProductionWorker worker = new ProductionWorker();
@@ -40,6 +57,5 @@ public class Main {
         });
         System.out.println("Total expenditure: " +sum.get());
     }
-
 
 }
