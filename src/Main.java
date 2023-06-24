@@ -1,13 +1,16 @@
 import advance.WorkingWithStrings;
+import intermediate.Searching;
 import oops.CargoShip;
 import oops.ProductionWorker;
 import oops.ShiftSupervisor;
 import oops.Ship;
 import oops.gradedActivity.FinalExam;
 import oops.gradedActivity.GradedActivity;
+import recursive.Recursion;
 
 import javax.swing.*;
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.Date;
 import java.util.List;
 import java.util.concurrent.atomic.AtomicReference;
@@ -25,9 +28,8 @@ public class Main {
 //                300);
 //        System.out.println(cruise);
 
-        CargoShip card = new CargoShip(300);
-
-        System.out.println(card.getName());
+        int[] min = {3, 4, 5, 1, 0};
+        System.out.println(Recursion.recursiveMultiplication(5, 4));
     }
 
     private static void demonstrateCustomer() {

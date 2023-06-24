@@ -3,7 +3,6 @@ package intermediate;
 
 import java.util.Arrays;
 import java.util.HashSet;
-import java.util.List;
 import java.util.Set;
 
 public class Searching {
@@ -19,12 +18,13 @@ public class Searching {
 
         while (start <= end) {
             int mid = start + (end - start) / 2;
+            int square = n / mid;
 
-            if (n / mid == mid)
+            if (square == mid)
                 return mid;
-            else if (n / mid < mid)
+            else if (square < mid)
                 end = mid - 1;
-            else if (n / mid > mid)
+            else if (square > mid)
                 start = mid + 1;
         }
         return end;
@@ -32,35 +32,36 @@ public class Searching {
 
     // https://leetcode.com/problems/two-sum-ii-input-array-is-sorted/
     public static int[] twoSum(int[] nums, int target) {
-//        int start = 0;
-//        int end = nums.length - 1;
-//        int[] ans=new int[2];
-//
-//        while (start < end){
-//            int sum = nums[start] + nums[end];
-//
-//            if (sum == target){
-//                ans[0] = start+1;
-//                ans[1] = end + 1;
-//                break;
-//            }
-//            else if (sum > target)
-//                end--;
-//            else
-//                start++;
-//        }
-//        return ans;
-        int start = 0, end = nums.length - 1;
+        int start = 0;
+        int end = nums.length - 1;
+        int[] ans = new int[2];
+        while (start < end) {
+            int sum = nums[start] + nums[end];
 
-        while (nums[start] + nums[end] != target) {
-            if (nums[start] + nums[end] > target) {
+            if (sum == target) {
+                ans[0] = start + 1;
+                ans[1] = end + 1;
+                break;
+            } else if (sum > target) {
                 end--;
             } else {
                 start++;
             }
         }
-        return new int[]{start + 1, end + 1};
+        return ans;
     }
+
+//        int start = 0, end = nums.length - 1;
+//
+//        while (nums[start] + nums[end] != target) {
+//            if (nums[start] + nums[end] > target) {
+//                end--;
+//            } else {
+//                start++;
+//            }
+//        }
+//        return new int[]{start + 1, end + 1};
+
 
     // https://leetcode.com/problems/arranging-coins/
     public static int arrangeCoins(int n) {
@@ -128,11 +129,12 @@ public class Searching {
                     end = mid - 1;
                 else
                     start = mid + 1;
-            } else {
+            }
+            else {
                 if (target > nums[mid])
-                    end = mid - 1;
+                    end = mid - 1; // move to left
                 else
-                    start = mid + 1;
+                    start = mid + 1; // move to right
             }
         }
         return -1;
@@ -171,7 +173,7 @@ public class Searching {
         return false;
     }
 
-    // Search for a target in a range of a specific index
+    // Search for a target in a range of a specify index
     public static int searchInRangeMinMax(int[] nums, int start, int end, int target) {
 
         for (int i = start; i <= end; i++) {
@@ -190,7 +192,7 @@ public class Searching {
         int min = nums[0];
         for (int i = 0; i < nums.length; i++) {
             if (nums[i] < min) {
-                return nums[i];
+                min = nums[i];
             }
         }
         return min;
@@ -206,7 +208,8 @@ public class Searching {
                 }
             }
         }
-        return new int[]{-1, -1};
+//        return new int[]{-1, -1};
+        return null;
     }
 
     public static int maxIn2D(int[][] nums) {
@@ -234,11 +237,7 @@ public class Searching {
     }
 
     static boolean isEven(int n) {
-        if (numOfDigits(n) % 2 == 0) {
-            return true;
-        } else {
-            return false;
-        }
+        return numOfDigits(n) % 2 == 0;
     }
 
     static int numOfDigits(int n) {
@@ -537,13 +536,12 @@ public class Searching {
     public static int peakMountain(int[] nums) {
         int start = 0, end = nums.length - 1;
 
-        while (start < end){
+        while (start < end) {
             int middle = start + (end - start) / 2;
 
-            if (nums[middle] > nums[middle+1]){
+            if (nums[middle] > nums[middle + 1]) {
                 end = middle; // Decreasing order
-            }
-            else{
+            } else {
                 start = middle + 1; // Increasing order
             }
         }
@@ -551,23 +549,23 @@ public class Searching {
     }
 
     // https://leetcode.com/problems/fair-candy-swap/description/
-    public static int[] fairCandySwap(int[] aliceSizes, int[] bobSizes){
+    public static int[] fairCandySwap(int[] aliceSizes, int[] bobSizes) {
         int aliceTotal = 0, bobTotal = 0;
 
-        for (int aliceCandy: aliceSizes)
-             aliceTotal +=aliceCandy;
+        for (int aliceCandy : aliceSizes)
+            aliceTotal += aliceCandy;
 
-        Set<Integer> bobCandySizes=new HashSet<>();
-        for (int bobCandy: bobSizes) {
+        Set<Integer> bobCandySizes = new HashSet<>();
+        for (int bobCandy : bobSizes) {
             bobTotal += bobCandy;
             bobCandySizes.add(bobCandy);
         }
 
         // Search for the pair of candies
-        int diffOfCandies=(bobTotal - aliceTotal) / 2;
-        for (int alice: aliceSizes){
-            if (bobCandySizes.contains(alice+diffOfCandies)){
-                return new int[]{alice, alice+diffOfCandies};
+        int diffOfCandies = (bobTotal - aliceTotal) / 2;
+        for (int alice : aliceSizes) {
+            if (bobCandySizes.contains(alice + diffOfCandies)) {
+                return new int[]{alice, alice + diffOfCandies};
             }
         }
         return null;
