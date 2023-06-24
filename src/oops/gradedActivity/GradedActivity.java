@@ -2,7 +2,7 @@ package oops.gradedActivity;
 
 public class GradedActivity {
 
-    private double score;
+    protected double score;
 
     public GradedActivity(double score) {
         this.score = score;

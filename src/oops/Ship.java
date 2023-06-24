@@ -13,7 +13,7 @@ public class Ship {
     }
 
 
-    public final String getName() {
+    public String getName() {
         return name;
     }
 

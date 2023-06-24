@@ -2,6 +2,8 @@ import advance.WorkingWithStrings;
 import oops.CargoShip;
 import oops.ProductionWorker;
 import oops.ShiftSupervisor;
+import oops.Ship;
+import oops.gradedActivity.FinalExam;
 import oops.gradedActivity.GradedActivity;
 
 import javax.swing.*;
@@ -24,7 +26,7 @@ public class Main {
 //        System.out.println(cruise);
 
         CargoShip card = new CargoShip(300);
-        card.setName("Game");
+
         System.out.println(card.getName());
     }
 
