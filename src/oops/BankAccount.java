@@ -7,7 +7,9 @@ public class BankAccount {
     private double numOfDeposits;
     private double widthdrawals;
     private double interestRate;
-    private double monthlyServiceCharges;
+    public double monthlyServiceCharges;
+
+    public BankAccount() {}
 
     public BankAccount(double balance, double interestRate) {
         this.balance = balance;
@@ -44,4 +46,39 @@ public class BankAccount {
         return this.balance - this.monthlyServiceCharges;
     }
 
+    public double getBalance() {
+        return balance;
+    }
+
+    public void setBalance(double balance) {
+        this.balance = balance;
+    }
+
+    public double getNumOfDeposits() {
+        return numOfDeposits;
+    }
+
+    public void setNumOfDeposits(double numOfDeposits) {
+        this.numOfDeposits = numOfDeposits;
+    }
+
+    public double getWidthdrawals() {
+        return widthdrawals;
+    }
+
+    public void setWidthdrawals(double widthdrawals) {
+        this.widthdrawals = widthdrawals;
+    }
+
+    public double getInterestRate() {
+        return interestRate;
+    }
+
+    public void setInterestRate(double interestRate) {
+        this.interestRate = interestRate;
+    }
+
+    public void setMonthlyServiceCharges(double monthlyServiceCharges) {
+        this.monthlyServiceCharges = monthlyServiceCharges;
+    }
 }

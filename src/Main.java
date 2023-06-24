@@ -1,4 +1,4 @@
-
+import oops.CargoShip;
 import oops.ProductionWorker;
 import oops.ShiftSupervisor;
 
@@ -9,18 +9,35 @@ import java.util.concurrent.atomic.AtomicReference;
 
 public class Main {
     public static void main(String[] args) {
+        demonstrateShip();
+//        System.out.println(WorkingWithStrings
+//                .wordCount("Hello there, how r"));
+    }
 
-        ShiftSupervisor s=new ShiftSupervisor();
+
+    private static void demonstrateShip() {
+//        Ship cruise = new CargoShip(
+//                "Titanic", "2022",
+//                300);
+//        System.out.println(cruise);
+
+        CargoShip cargoShip = new CargoShip(
+                "Tetris",
+                "2025", 4000);
+        System.out.println(cargoShip);
+    }
+
+    private static void demonstrateCustomer() {
+        ShiftSupervisor s = new ShiftSupervisor();
         s.setGoalMet(true);
         s.setEmployeeName("Ousmane");
         s.setEmployeeNumber("19019198829-MR");
         s.setAnnualSalary(8000.0);
         s.setHireDate(new Date());
 
-        if (s.isGoalMet()){
+        if (s.isGoalMet()) {
             s.setBonus(100.0);
-        }
-        else {
+        } else {
             s.setBonus(0.0);
         }
         s.setAnnualSalary(s.getAnnualSalary() + (s.getBonus() * 12));
@@ -55,7 +72,7 @@ public class Main {
             }
             sum.set(monthlyWage * 3);
         });
-        System.out.println("Total expenditure: " +sum.get());
+        System.out.println("Total expenditure: " + sum.get());
     }
 
 }
