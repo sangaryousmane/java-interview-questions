@@ -1,7 +1,10 @@
+import advance.WorkingWithStrings;
 import oops.CargoShip;
 import oops.ProductionWorker;
 import oops.ShiftSupervisor;
+import oops.gradedActivity.GradedActivity;
 
+import javax.swing.*;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
@@ -10,8 +13,7 @@ import java.util.concurrent.atomic.AtomicReference;
 public class Main {
     public static void main(String[] args) {
         demonstrateShip();
-//        System.out.println(WorkingWithStrings
-//                .wordCount("Hello there, how r"));
+
     }
 
 
@@ -21,10 +23,9 @@ public class Main {
 //                300);
 //        System.out.println(cruise);
 
-        CargoShip cargoShip = new CargoShip(
-                "Tetris",
-                "2025", 4000);
-        System.out.println(cargoShip);
+        CargoShip card = new CargoShip(300);
+        card.setName("Game");
+        System.out.println(card.getName());
     }
 
     private static void demonstrateCustomer() {

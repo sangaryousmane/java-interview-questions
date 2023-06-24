@@ -5,8 +5,8 @@ public class CargoShip extends Ship {
     private int capacity;
 
 
-    public CargoShip(String name, String year, int capacity) {
-        super(name, year);
+    public CargoShip( int capacity) {
+        super("SJ AIR CARGO", "2018");
         this.capacity = capacity;
     }
 
