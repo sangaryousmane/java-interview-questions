@@ -1,23 +1,15 @@
-import advance.WorkingWithStrings;
-import intermediate.Searching;
-import oops.CargoShip;
 import oops.ProductionWorker;
 import oops.ShiftSupervisor;
-import oops.Ship;
-import oops.gradedActivity.FinalExam;
-import oops.gradedActivity.GradedActivity;
 import recursive.Recursion;
 
-import javax.swing.*;
 import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.Date;
 import java.util.List;
 import java.util.concurrent.atomic.AtomicReference;
 
 public class Main {
     public static void main(String[] args) {
-        Recursion.hanoi(3, 1, 3);
+        System.out.println(Recursion.sumOfNumbersRecur(5));
     }
 
 

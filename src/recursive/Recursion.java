@@ -39,4 +39,31 @@ public class Recursion {
             hanoi(n-1, temp, end);
         }
     }
+
+    public static void sumOfDigits(int n){
+        int sum = 0;
+        while (n  > 0){
+            int digit = n  % 10;
+            sum +=digit;
+            n /= 10;
+        }
+        System.out.println("Sum is: "+ sum);
+    }
+
+    public static int sumOfNumbers(int n){
+        int i = 1, sum = 0;
+
+        while (i <= n){
+            sum += i;
+            i++;
+        }
+        return sum;
+    }
+    public static int sumOfNumbersRecur(int n){
+        if (n == 0)
+            return 0;
+        if (n == 1)
+            return 1;
+        return n + sumOfNumbersRecur(n - 1);
+    }
 }
