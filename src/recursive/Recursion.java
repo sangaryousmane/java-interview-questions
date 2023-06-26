@@ -67,11 +67,16 @@ public class Recursion {
     }
 
     public static boolean isMember(int[]arr, int target){
-        if (arr.length == 0)
-            return false;
+       return checkNumberIfExist(arr, target, 0);
+    }
 
-        if (arr[arr.length - 1] == target)
-            return isMember(arr, arr[target]);
-        return false;
+    private static boolean checkNumberIfExist(
+            int[] arr, int target, int startIndex){
+        int n = arr.length;
+        if (startIndex==n)
+            return false;
+        if (arr[startIndex] == target)
+            return true;
+        return checkNumberIfExist(arr, target, startIndex+1);
     }
 }
