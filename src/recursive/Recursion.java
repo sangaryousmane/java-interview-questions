@@ -29,14 +29,13 @@ public class Recursion {
     }
     public static void hanoi(int n, int start, int end){
         int temp;
-        if (n == 1) {
+        if (n == 1)
             printHanoi(start, end);
-        }
         else {
             temp = 6 - (start + end); // 6 - (1 + 3) = 6 - 4 = 2
-            hanoi(n -1, start, temp);
-            printHanoi(start, end);
-            hanoi(n-1, temp, end);
+            hanoi(n -1, start, temp); // move from start to middle
+            printHanoi(start, end);     // print step
+            hanoi(n-1, temp, end); // move from middle to end
         }
     }
 
@@ -65,5 +64,14 @@ public class Recursion {
         if (n == 1)
             return 1;
         return n + sumOfNumbersRecur(n - 1);
+    }
+
+    public static boolean isMember(int[]arr, int target){
+        if (arr.length == 0)
+            return false;
+
+        if (arr[arr.length - 1] == target)
+            return isMember(arr, arr[target]);
+        return false;
     }
 }

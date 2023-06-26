@@ -9,7 +9,8 @@ import java.util.concurrent.atomic.AtomicReference;
 
 public class Main {
     public static void main(String[] args) {
-        System.out.println(Recursion.sumOfNumbersRecur(5));
+        int[] arr={14,7,5, 4};
+        System.out.println(Recursion.isMember(arr, 4));
     }
 
 
