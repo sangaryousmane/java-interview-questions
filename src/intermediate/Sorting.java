@@ -1,7 +1,5 @@
 package intermediate;
 
-import java.util.Arrays;
-
 public class Sorting {
 
     public static void bubbleSort(int[] arr) {
@@ -15,7 +13,7 @@ public class Sorting {
 
             // For each step, the max item will come at the last respective index
             for (int j = 1; j < arr.length - i; j++) {
-
+//
                 // check if the current item is smaller than the previous item
                 if (arr[j] < arr[j - 1]) {
 
