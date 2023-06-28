@@ -16,8 +16,10 @@ public class Sorting {
             // For each step, the max item will come at the last respective index
             for (int j = 1; j < arr.length - i; j++) {
 
-
+                // check if the current item is smaller than the previous item
                 if (arr[j] < arr[j - 1]) {
+
+                    // Swap if the current item is smaller than the previous item
                     int temp = arr[j];
                     arr[j] = arr[j - 1];
                     arr[j - 1] = temp;
@@ -30,14 +32,6 @@ public class Sorting {
             if (!isSwapped) {
                 break;
             }
-            System.out.println(Arrays.toString(arr));
         }
-
-
-        // check if the current item is smaller than the previous item
-
-        // Swap if the current item is smaller than the previous item
-
-
     }
 }

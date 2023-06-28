@@ -1,4 +1,5 @@
 import intermediate.ArraysHub;
+import intermediate.Sorting;
 import oops.ProductionWorker;
 import oops.ShiftSupervisor;
 import recursive.Recursion;
@@ -11,6 +12,12 @@ import java.util.concurrent.atomic.AtomicReference;
 
 public class Main {
     public static void main(String[] args) {
+        int[] arr={3, 5, 1, 10, 2};
+        Sorting.bubbleSort(arr);
+        System.out.println(Arrays.toString(arr));
+    }
+
+    private static void checkMatrix() {
         int[][] arr={
                 {10, 20, 30,40},
                 {15, 25, 35, 45},
