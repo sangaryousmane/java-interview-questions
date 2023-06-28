@@ -2,6 +2,33 @@ package intermediate;
 
 public class Sorting {
 
+
+
+    // Perform selection sort
+    public static void selectionSort(int[] arr){
+        for (int i=0; i < arr.length; i++){
+
+            int lastIndex=arr.length - i -1;
+            int maxIndex=getMaxIndex(arr, 0, lastIndex);
+            swap(arr, maxIndex, lastIndex);
+        }
+    }
+    private static int getMaxIndex(int[] arr, int start, int end){
+        int max=start, i =start;
+
+        while (i <= end){
+            if (arr[max] < arr[i])
+                max=i;
+            i++;
+        }
+        return max;
+    }
+    private static void swap(int[] arr, int first, int second) {
+        int temp = arr[first];
+        arr[first] = arr[second];
+        arr[second] = temp;
+    }
+
     public static void bubbleSort(int[] arr) {
 
         // Initialize whether the array is swapped
