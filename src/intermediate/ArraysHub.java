@@ -5,7 +5,7 @@ import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
 
-public class ArraysHub{
+public class ArraysHub {
 
     // Build Array from Permutation
     // https://leetcode.com/problems/build-array-from-permutation/
@@ -153,12 +153,30 @@ public class ArraysHub{
     }
 
     // https://leetcode.com/problems/check-if-the-sentence-is-pangram/
-    public static boolean checkIfPangram(String sentence){
-        Set<Character> letters=new HashSet<>();
+    public static boolean checkIfPangram(String sentence) {
+        Set<Character> letters = new HashSet<>();
 
-        for (char letter: sentence.toCharArray()){
+        for (char letter : sentence.toCharArray()) {
             letters.add(letter);
         }
         return letters.size() == 26;
+    }
+
+    public static int[] searchInMatrix(int[][] matrix, int target) {
+        int row = 0;
+        int column = matrix[0].length - 1;
+
+        while (row < matrix.length && column >= 0) {
+            if (matrix[row][column] == target) {
+                return new int[]{row, column};
+            }
+
+            if (matrix[row][column] > target) {
+                column--;
+            } else {
+                row++;
+            }
+        }
+        return new int[]{-1, -1};
     }
 }

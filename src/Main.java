@@ -1,16 +1,22 @@
+import intermediate.ArraysHub;
 import oops.ProductionWorker;
 import oops.ShiftSupervisor;
 import recursive.Recursion;
 
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.Date;
 import java.util.List;
 import java.util.concurrent.atomic.AtomicReference;
 
 public class Main {
     public static void main(String[] args) {
-        int[] arr={14,7, 4};
-        System.out.println(Recursion.maxElement(arr, arr.length));
+        int[][] arr={
+                {10, 20, 30,40},
+                {15, 25, 35, 45},
+                {28, 29, 37, 49}};
+        int[] result = ArraysHub.searchInMatrix(arr, 49);
+        System.out.println(Arrays.toString(result));
     }
 
 
