@@ -9,24 +9,27 @@ public class Sorting {
         for (int i=0; i < arr.length; i++){
 
             int lastIndex=arr.length - i -1;
-            int maxIndex=getMaxIndex(arr, 0, lastIndex);
-            swap(arr, maxIndex, lastIndex);
+            int start = 0;
+
+            int maxIndex = start;
+            for (int j = start; j <= lastIndex; j++){
+                if (arr[maxIndex] < arr[j])
+                    maxIndex = j;
+            }
+            int temp = arr[maxIndex];
+            arr[maxIndex] = arr[lastIndex];
+            arr[lastIndex] = temp;
         }
     }
-    private static int getMaxIndex(int[] arr, int start, int end){
-        int max=start, i =start;
 
-        while (i <= end){
+    private static int getMaxIndex(int[] arr, int start, int lastIndex) {
+        int max = start;
+
+        for (int i = start; i <= lastIndex; i++) {
             if (arr[max] < arr[i])
-                max=i;
-            i++;
+                max = i;
         }
         return max;
-    }
-    private static void swap(int[] arr, int first, int second) {
-        int temp = arr[first];
-        arr[first] = arr[second];
-        arr[second] = temp;
     }
 
     public static void bubbleSort(int[] arr) {

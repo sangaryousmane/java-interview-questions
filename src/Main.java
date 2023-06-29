@@ -12,7 +12,7 @@ import java.util.concurrent.atomic.AtomicReference;
 
 public class Main {
     public static void main(String[] args) {
-        int[] arr={3, -15, -1, 0, 10, 21};
+        int[] arr={3, -15, -1, 0, 10, -21, -22, 30};
         Sorting.selectionSort(arr);
         System.out.println(Arrays.toString(arr));
     }
