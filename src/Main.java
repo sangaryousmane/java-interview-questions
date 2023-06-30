@@ -12,14 +12,14 @@ import java.util.concurrent.atomic.AtomicReference;
 
 public class Main {
     public static void main(String[] args) {
-        int[] arr={13, -15, -1, 0, 10, -21, -22, 30};
-        Sorting.insertionSort(arr);
+        int[] arr = {5, 4, 1, 2, 3};
+        Sorting.cyclicSort(arr);
         System.out.println(Arrays.toString(arr));
     }
 
     private static void checkMatrix() {
-        int[][] arr={
-                {10, 20, 30,40},
+        int[][] arr = {
+                {10, 20, 30, 40},
                 {15, 25, 35, 45},
                 {28, 29, 37, 49}};
         int[] result = ArraysHub.searchInMatrix(arr, 49);

@@ -3,22 +3,42 @@ package intermediate;
 public class Sorting {
 
 
+    // Perform cyclic sort
+    public static void cyclicSort(int[] arr) {
+        // Iterate over the array once
+        // check if the current element is equal
+        // to the value of the element's index minus one
+        // swap if not, else go to the next element
+        int i = 0;
+        while (i < arr.length) {
+            int correctIndex = arr[i] - 1;
+
+            if (arr[i] != arr[correctIndex]) {
+                int temp = arr[i];
+                arr[i] = arr[correctIndex];
+                arr[correctIndex] = temp;
+            } else {
+                i++;
+            }
+        }
+    }
+
     // Perform insertion sort. It is stable
-    public static void insertionSort(int[] arr){
-        for (int i =0; i<arr.length -1; i++){
-            for (int j = i+1; j > 0; j--){
-                if (arr[j] < arr[j - 1]){
+    public static void insertionSort(int[] arr) {
+        for (int i = 0; i < arr.length - 1; i++) {
+            for (int j = i + 1; j > 0; j--) {
+                if (arr[j] < arr[j - 1]) {
                     int temp = arr[j];
                     arr[j] = arr[j - 1];
                     arr[j - 1] = temp;
                     // arr[j] = current element
                     // arr[j-1] = previous element
-                }
-                else
+                } else
                     break;
             }
         }
     }
+
     // Perform selection sort
     public static void selectionSort(int[] arr) {
 
@@ -32,7 +52,7 @@ public class Sorting {
             int start = 0;
             int maxIndex = start;
 
-            for (int j=start; j <= lastIndex; j++){
+            for (int j = start; j <= lastIndex; j++) {
                 if (arr[maxIndex] < arr[j])
                     maxIndex = j;
             }
