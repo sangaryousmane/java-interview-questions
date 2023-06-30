@@ -6,6 +6,41 @@ import java.util.List;
 public class Sorting {
 
 
+
+
+    // https://leetcode.com/problems/single-number/
+    public static int singleNumber(int[] nums){
+        int ans = 0;
+        for (int num : nums) {
+            ans ^= num;
+        }
+        return ans;
+    }
+
+    // https://leetcode.com/problems/find-the-duplicate-number/description/
+    public static int findDuplicate(int[] nums) {
+        int i = 0;
+        while (i < nums.length) {
+
+
+            if (nums[i] != i + 1) {
+                int correct = nums[i] - 1; // 1 to n
+
+                if (nums[i] != nums[correct]) {
+                    int temp = nums[i];
+                    nums[i] = nums[correct];
+                    nums[correct] = temp;
+                } else {
+                    return nums[i];
+                }
+            } else {
+                i++;
+            }
+        }
+        return -1;
+
+    }
+
     // https://leetcode.com/problems/find-all-numbers-disappeared-in-an-array/description/
     public static List<Integer> findDisappearedNumbers(int[] nums) {
         int i = 0;
@@ -15,9 +50,9 @@ public class Sorting {
         cyclicSort(nums, i);
 
         // Check for the numbers that are not in the range of numbers
-        for (int index =0; index < nums.length; index++){
-            if (nums[index] != index + 1){
-                ans.add(index+1);
+        for (int index = 0; index < nums.length; index++) {
+            if (nums[index] != index + 1) {
+                ans.add(index + 1);
             }
         }
         return ans;
@@ -32,7 +67,7 @@ public class Sorting {
                 int temp = nums[i];
                 nums[i] = nums[correctIndex];
                 nums[correctIndex] = temp;
-            }else
+            } else
                 i++;
         }
     }
