@@ -3,19 +3,40 @@ package intermediate;
 public class Sorting {
 
 
-
+    // Perform insertion sort. It is stable
+    public static void insertionSort(int[] arr){
+        for (int i =0; i<arr.length -1; i++){
+            for (int j = i+1; j > 0; j--){
+                if (arr[j] < arr[j - 1]){
+                    int temp = arr[j];
+                    arr[j] = arr[j - 1];
+                    arr[j - 1] = temp;
+                    // arr[j] = current element
+                    // arr[j-1] = previous element
+                }
+                else
+                    break;
+            }
+        }
+    }
     // Perform selection sort
-    public static void selectionSort(int[] arr){
-        for (int i=0; i < arr.length; i++){
+    public static void selectionSort(int[] arr) {
 
-            int lastIndex=arr.length - i -1;
+        // Find index of last element
+        // Find maximum number
+        // swap maximum number with last index
+
+        for (int i = 0; i < arr.length; i++) {
+
+            int lastIndex = arr.length - i - 1;
             int start = 0;
-
             int maxIndex = start;
-            for (int j = start; j <= lastIndex; j++){
+
+            for (int j=start; j <= lastIndex; j++){
                 if (arr[maxIndex] < arr[j])
                     maxIndex = j;
             }
+
             int temp = arr[maxIndex];
             arr[maxIndex] = arr[lastIndex];
             arr[lastIndex] = temp;
