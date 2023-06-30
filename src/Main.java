@@ -13,8 +13,8 @@ import java.util.concurrent.atomic.AtomicReference;
 public class Main {
     public static void main(String[] args) {
         int[] arr = {4,3,2,7,8,2,3,1, 1};
-        System.out.println(Sorting.findDuplicates(arr));
-//        System.out.println(Arrays.toString(arr));
+        Sorting.bubbleSort(arr);
+        System.out.println(Arrays.toString(arr));
     }
 
     private static void checkMatrix() {

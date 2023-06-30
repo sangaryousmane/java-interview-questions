@@ -5,23 +5,34 @@ import java.util.List;
 
 public class Sorting {
 
+    // https://leetcode.com/problems/set-mismatch/submissions/
 
+    // TODO: set mismatch - a leetcode problem with cyclic sort intuition
+    public static int[] findErrorNums(int[] nums) {
+        int i = 0;
+        cyclicSort(nums, i);
+        for (i = 0; i < nums.length; i++) {
+            if (nums[i] != i + 1)
+                return new int[]{nums[i], i + 1};
+        }
+        return new int[]{-1, -1};
+    }
 
     // https://leetcode.com/problems/find-all-duplicates-in-an-array/
-    public static List<Integer> findDuplicates(int[] nums){
+    public static List<Integer> findDuplicates(int[] nums) {
         int i = 0;
         cyclicSort(nums, i);
 
-        List<Integer> ans=new ArrayList<>();
-        for (int index=0; index < nums.length; index++){
-            if (nums[index] != index+1)
+        List<Integer> ans = new ArrayList<>();
+        for (int index = 0; index < nums.length; index++) {
+            if (nums[index] != index + 1)
                 ans.add(nums[index]);
         }
         return ans;
     }
 
     // https://leetcode.com/problems/single-number/
-    public static int singleNumber(int[] nums){
+    public static int singleNumber(int[] nums) {
         int ans = 0;
         for (int num : nums) {
             ans ^= num;
@@ -69,10 +80,8 @@ public class Sorting {
     }
 
     private static void cyclicSort(int[] nums, int i) {
-
         while (i < nums.length) {
             int correctIndex = nums[i] - 1;
-
             if (nums[i] != nums[correctIndex]) {
                 int temp = nums[i];
                 nums[i] = nums[correctIndex];
@@ -173,33 +182,25 @@ public class Sorting {
     }
 
     public static void bubbleSort(int[] arr) {
-
-        // Initialize whether the array is swapped
+        // [3, 1, 2, 10] = [1,3,2,10] = [1,2,3,10]
+        // iterate through the arr
+        // check if the current number is less than the previous
+        // NB: the current number starts at index 1
+        // the previous is current index - 1
         boolean isSwapped;
-
-        // run the steps until the end of the array (n-1)
         for (int i = 0; i < arr.length; i++) {
-            isSwapped = false; // swapping hasn't occurred yet
+            isSwapped = false;
 
-            // For each step, the max item will come at the last respective index
             for (int j = 1; j < arr.length - i; j++) {
-//
-                // check if the current item is smaller than the previous item
                 if (arr[j] < arr[j - 1]) {
-
-                    // Swap if the current item is smaller than the previous item
                     int temp = arr[j];
                     arr[j] = arr[j - 1];
                     arr[j - 1] = temp;
-                    isSwapped = true; // After initial swap
+                    isSwapped = true;
                 }
             }
-
-            // Break the loop and return the elements in the array if it's already sorted
-            // Array is already sorted when there is no swapping done.
-            if (!isSwapped) {
+            if (!isSwapped) // base case where there was no swapping
                 break;
-            }
         }
     }
 }
