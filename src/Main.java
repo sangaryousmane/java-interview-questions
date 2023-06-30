@@ -12,9 +12,9 @@ import java.util.concurrent.atomic.AtomicReference;
 
 public class Main {
     public static void main(String[] args) {
-        int[] arr = {5, 4, 1, 2, 3};
-        Sorting.cyclicSort(arr);
-        System.out.println(Arrays.toString(arr));
+        int[] arr = {4, 3, 2, 7, 8, 2, 3, 1};
+        System.out.println(Sorting.findDisappearedNumbers(arr));
+//        System.out.println(Arrays.toString(arr));
     }
 
     private static void checkMatrix() {

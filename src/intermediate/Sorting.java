@@ -1,31 +1,63 @@
 package intermediate;
 
+import java.util.ArrayList;
+import java.util.List;
+
 public class Sorting {
 
 
+    // https://leetcode.com/problems/find-all-numbers-disappeared-in-an-array/description/
+    public static List<Integer> findDisappearedNumbers(int[] nums) {
+        int i = 0;
+        List<Integer> ans = new ArrayList<>();
+
+        // Apply cyclic sort on the array
+        cyclicSort(nums, i);
+
+        // Check for the numbers that are not in the range of numbers
+        for (int index =0; index < nums.length; index++){
+            if (nums[index] != index + 1){
+                ans.add(index+1);
+            }
+        }
+        return ans;
+    }
+
+    private static void cyclicSort(int[] nums, int i) {
+
+        while (i < nums.length) {
+            int correctIndex = nums[i] - 1;
+
+            if (nums[i] != nums[correctIndex]) {
+                int temp = nums[i];
+                nums[i] = nums[correctIndex];
+                nums[correctIndex] = temp;
+            }else
+                i++;
+        }
+    }
 
     // Only number in the range that is missing from the array
     // https://leetcode.com/problems/missing-number/description/
-    public static int missingNumber(int[] arr){
+    public static int missingNumber(int[] arr) {
         int i = 0;
-        while (i < arr.length){
+        while (i < arr.length) {
             int correctIndex = arr[i]; // index of current element
 
             // Swap the elements of the array
-            if (arr[i] < arr.length && arr[i] != arr[correctIndex]){
+            if (arr[i] < arr.length && arr[i] != arr[correctIndex]) {
                 int temp = arr[i];
                 arr[i] = arr[correctIndex];
                 arr[correctIndex] = temp;
-            }
-            else{
+            } else {
                 i++;
             }
         }
 
         // Check for the missing number in the array
         // case 1
-        for (int index = 0; index < arr.length; index++){
-            if (arr[index] !=index){
+        for (int index = 0; index < arr.length; index++) {
+            if (arr[index] != index) {
                 return index;  // if the element is not equal to it current index, then the index is the missing
             }
         }
@@ -34,6 +66,7 @@ public class Sorting {
         // ith element that is not in the array. eg: [0, 1, 2, 3]. missing element is 4
         return arr.length;
     }
+
     // Perform cyclic sort
     public static void cyclicSort(int[] arr) {
         // Iterate over the array once
@@ -41,17 +74,7 @@ public class Sorting {
         // to the value of the element's index minus one
         // swap if not, else go to the next element
         int i = 0;
-        while (i < arr.length) {
-            int correctIndex = arr[i] - 1;
-
-            if (arr[i] != arr[correctIndex]) {
-                int temp = arr[i];
-                arr[i] = arr[correctIndex];
-                arr[correctIndex] = temp;
-            } else {
-                i++;
-            }
-        }
+        cyclicSort(arr, i);
     }
 
     // Perform insertion sort. It is stable
