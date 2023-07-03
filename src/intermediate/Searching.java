@@ -42,13 +42,15 @@ public class Searching {
                 ans[0] = start + 1;
                 ans[1] = end + 1;
                 break;
-            } else if (sum > target) {
+            }
+            else if (sum > target) {
                 end--;
-            } else {
+            }
+            else {
                 start++;
             }
         }
-        return ans;
+         return ans;
     }
 
 //        int start = 0, end = nums.length - 1;

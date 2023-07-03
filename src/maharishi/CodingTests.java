@@ -88,31 +88,31 @@ public class CodingTests {
     }
 
     // Find an array containing all elements common to two given arrays containing distinct positive integers
-    public static int[] commonToArrays(int[]nums1, int[] nums2){
-        Set<Integer> keep=new HashSet<>();
+    public static int[] commonToArrays(int[] nums1, int[] nums2) {
+        Set<Integer> keep = new HashSet<>();
 
-        if (nums1 == null || nums2==null)
+        if (nums1 == null || nums2 == null)
             return null;
 
         Arrays.sort(nums2);
 
-        for (Integer i: nums1){
-            if (isFound(nums2, i)){
+        for (Integer i : nums1) {
+            if (isFound(nums2, i)) {
                 keep.add(i);
             }
         }
         int j = 0;
-        int[] ans=new int[keep.size()];
-        for (Integer i: keep){
-            ans[j++]= i;
+        int[] ans = new int[keep.size()];
+        for (Integer i : keep) {
+            ans[j++] = i;
         }
         return ans;
     }
 
-    private static boolean isFound(int[] nums, int target){
+    private static boolean isFound(int[] nums, int target) {
         int start = 0, end = nums.length - 1;
 
-        while (start <= end){
+        while (start <= end) {
             int mid = start + (end - start) / 2;
 
             if (nums[mid] == target)

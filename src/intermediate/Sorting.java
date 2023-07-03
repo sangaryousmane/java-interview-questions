@@ -5,8 +5,8 @@ import java.util.List;
 
 public class Sorting {
 
-    // https://leetcode.com/problems/set-mismatch/submissions/
 
+    // https://leetcode.com/problems/set-mismatch/submissions/
     // TODO: set mismatch - a leetcode problem with cyclic sort intuition
     public static int[] findErrorNums(int[] nums) {
         int i = 0;
@@ -32,6 +32,7 @@ public class Sorting {
     }
 
     // https://leetcode.com/problems/single-number/
+    // TODO: finding a single number in an array
     public static int singleNumber(int[] nums) {
         int ans = 0;
         for (int num : nums) {
@@ -44,6 +45,7 @@ public class Sorting {
     public static int findDuplicate(int[] nums) {
         int i = 0;
         while (i < nums.length) {
+
             if (nums[i] != i + 1) {
                 int correct = nums[i] - 1; // 1 to n
 
@@ -63,6 +65,7 @@ public class Sorting {
     }
 
     // https://leetcode.com/problems/find-all-numbers-disappeared-in-an-array/description/
+
     public static List<Integer> findDisappearedNumbers(int[] nums) {
         int i = 0;
         List<Integer> ans = new ArrayList<>();
@@ -82,6 +85,8 @@ public class Sorting {
     private static void cyclicSort(int[] nums, int i) {
         while (i < nums.length) {
             int correctIndex = nums[i] - 1;
+
+            // if the number is not at the correct index, swap
             if (nums[i] != nums[correctIndex]) {
                 int temp = nums[i];
                 nums[i] = nums[correctIndex];
@@ -133,6 +138,7 @@ public class Sorting {
 
     // Perform insertion sort. It is stable
     public static void insertionSort(int[] arr) {
+        //[ 2, 4,1,0]
         for (int i = 0; i < arr.length - 1; i++) {
             for (int j = i + 1; j > 0; j--) {
                 if (arr[j] < arr[j - 1]) {
@@ -141,7 +147,8 @@ public class Sorting {
                     arr[j - 1] = temp;
                     // arr[j] = current element
                     // arr[j-1] = previous element
-                } else
+                }
+                else
                     break;
             }
         }
@@ -153,22 +160,25 @@ public class Sorting {
         // Find index of last element
         // Find maximum number
         // swap maximum number with last index
+        // keep taking the minimum number in the array and swap it with the
+        // number at the last index
 
-        for (int i = 0; i < arr.length; i++) {
-
+        for (int i = 0; i < arr.length; i++){
             int lastIndex = arr.length - i - 1;
             int start = 0;
             int maxIndex = start;
 
-            for (int j = start; j <= lastIndex; j++) {
-                if (arr[maxIndex] < arr[j])
-                    maxIndex = j;
+            for (int j = start; j <= lastIndex - 1; j++){
+               if (arr[maxIndex] < arr[j])
+                   maxIndex = j;
             }
 
+            // swap the element at last index with the minimum element
             int temp = arr[maxIndex];
             arr[maxIndex] = arr[lastIndex];
             arr[lastIndex] = temp;
         }
+
     }
 
     private static int getMaxIndex(int[] arr, int start, int lastIndex) {
