@@ -1,5 +1,6 @@
 import intermediate.ArraysHub;
 import intermediate.Sorting;
+import intermediate.StringManipulation;
 import oops.ProductionWorker;
 import oops.ShiftSupervisor;
 import recursive.Recursion;
@@ -13,7 +14,8 @@ import java.util.concurrent.atomic.AtomicReference;
 public class Main {
     public static void main(String[] args) {
         int[] arr = {4,3,2,7,8,2,3,1};
-        System.out.println(disapear(arr));
+        String name = "Ousmane";
+        StringManipulation.pattern7(5, "desc");
     }
 
     static List<Integer> disapear(int[] arr){
