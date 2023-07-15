@@ -83,8 +83,13 @@ public class Sorting {
     }
 
     private static void cyclicSort(int[] nums, int i) {
+        int correctIndex;
         while (i < nums.length) {
-            int correctIndex = nums[i] - 1;
+
+            if (nums[0] == 0)
+                 correctIndex = nums[i];
+            else
+                correctIndex = nums[i] - 1;
 
             // if the number is not at the correct index, swap
             if (nums[i] != nums[correctIndex]) {
