@@ -1,3 +1,4 @@
+import advance.linkedlist.CircularLinkedList;
 import advance.linkedlist.DLL;
 import advance.linkedlist.SLL;
 import intermediate.ArraysHub;
@@ -13,10 +14,18 @@ import java.util.concurrent.atomic.AtomicReference;
 
 public class Main {
     public static void main(String[] args) {
+        CircularLinkedList cll=new CircularLinkedList();
+        cll.add(10);
+        cll.display();
+    }
+
+    private static void doublyLinked() {
         DLL dll=new DLL();
         dll.add(10);
         dll.add(100);
         dll.add(90);
+        dll.addEnd(210);
+        dll.addAtIndex(100, 1);
         dll.display();
         dll.displayRev();
     }
