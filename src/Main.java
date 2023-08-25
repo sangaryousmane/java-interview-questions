@@ -1,6 +1,5 @@
+import advance.linkedlist.SLL;
 import intermediate.ArraysHub;
-import intermediate.Sorting;
-import intermediate.StringManipulation;
 import oops.ProductionWorker;
 import oops.ShiftSupervisor;
 import recursive.Recursion;
@@ -13,43 +12,53 @@ import java.util.concurrent.atomic.AtomicReference;
 
 public class Main {
     public static void main(String[] args) {
-        int[] arr = {4,3,7,5, 0 ,8, 6,2,1};
-        Sorting.cyclicSort(arr);
-        System.out.println(Arrays.toString(arr));
+       SLL sll=new SLL();
+       sll.add(4);
+       sll.add(10);
+       sll.addEnd(20);
+       sll.addEnd(30);
+
+       // insert at an index
+        sll.addAtIndex(100, 2);
+        sll.addAtIndex(201, 1);
+        sll.displayListContent();
+
+//        System.out.println("Deleted: " + sll.deleteLast()); // Delete the first element
+        sll.deleteByIndex(3);
+        sll.displayListContent();
     }
 
-    static List<Integer> disapear(int[] arr){
+    static List<Integer> disapear(int[] arr) {
         int i = 0;
 
-        while (i < arr.length){
+        while (i < arr.length) {
             int correctIndex = arr[i] - 1;
 
-            if (arr[i] != arr[correctIndex]){
+            if (arr[i] != arr[correctIndex]) {
                 int temp = arr[i];
                 arr[i] = arr[correctIndex];
                 arr[correctIndex] = temp;
-            }
-            else{
+            } else {
                 i++;
             }
         }
-        List<Integer> notFound=new ArrayList<>();
-        for (int index = 0; index < arr.length; index++){
-            if (arr[index] != index+1)
-                notFound.add(index+1);
+        List<Integer> notFound = new ArrayList<>();
+        for (int index = 0; index < arr.length; index++) {
+            if (arr[index] != index + 1)
+                notFound.add(index + 1);
         }
         return notFound;
     }
+
     static void selection(int[] arr) {
 
-        for (int i = 0; i < arr.length - 1; i++){
-            for (int j = i + 1; j > 0; j--){
-                if (arr[j] < arr[j - 1]){
+        for (int i = 0; i < arr.length - 1; i++) {
+            for (int j = i + 1; j > 0; j--) {
+                if (arr[j] < arr[j - 1]) {
                     int temp = arr[j];
                     arr[j] = arr[j - 1];
                     arr[j - 1] = temp;
-                }
-                else{
+                } else {
                     break;
                 }
             }

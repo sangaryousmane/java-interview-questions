@@ -65,7 +65,6 @@ public class Sorting {
     }
 
     // https://leetcode.com/problems/find-all-numbers-disappeared-in-an-array/description/
-
     public static List<Integer> findDisappearedNumbers(int[] nums) {
         int i = 0;
         List<Integer> ans = new ArrayList<>();
@@ -87,9 +86,9 @@ public class Sorting {
         while (i < nums.length) {
 
             if (nums[0] == 0)
-                 correctIndex = nums[i];
+                 correctIndex = nums[i]; // from 0 to n
             else
-                correctIndex = nums[i] - 1;
+                correctIndex = nums[i] - 1; // from 1 to n
 
             // if the number is not at the correct index, swap
             if (nums[i] != nums[correctIndex]) {
@@ -119,6 +118,7 @@ public class Sorting {
         }
 
         // Check for the missing number in the array
+        // A number is missing when it's not equal to it current index
         // case 1
         for (int index = 0; index < arr.length; index++) {
             if (arr[index] != index) {
@@ -171,19 +171,18 @@ public class Sorting {
         for (int i = 0; i < arr.length; i++){
             int lastIndex = arr.length - i - 1;
             int start = 0;
-            int maxIndex = start;
+            int maxNum = getMaxIndex(arr, start, lastIndex);
 
-            for (int j = start; j <= lastIndex - 1; j++){
-               if (arr[maxIndex] < arr[j])
-                   maxIndex = j;
+            for (int j = start; j<= lastIndex; j++){
+                if (arr[maxNum] < arr[j])
+                    maxNum=j;
             }
 
-            // swap the element at last index with the minimum element
-            int temp = arr[maxIndex];
-            arr[maxIndex] = arr[lastIndex];
+            // Swap
+            int temp = arr[maxNum];
+            arr[maxNum] = arr[lastIndex];
             arr[lastIndex] = temp;
         }
-
     }
 
     private static int getMaxIndex(int[] arr, int start, int lastIndex) {
