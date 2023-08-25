@@ -78,7 +78,6 @@ public class SLL {
         Node newNode = new Node(value, temp.next);
         temp.next = newNode;
         size++;
-
     }
 
     // Return the length of the list

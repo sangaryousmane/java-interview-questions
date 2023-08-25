@@ -1,3 +1,4 @@
+import advance.linkedlist.DLL;
 import advance.linkedlist.SLL;
 import intermediate.ArraysHub;
 import oops.ProductionWorker;
@@ -12,13 +13,22 @@ import java.util.concurrent.atomic.AtomicReference;
 
 public class Main {
     public static void main(String[] args) {
-       SLL sll=new SLL();
-       sll.add(4);
-       sll.add(10);
-       sll.addEnd(20);
-       sll.addEnd(30);
+        DLL dll=new DLL();
+        dll.add(10);
+        dll.add(100);
+        dll.add(90);
+        dll.display();
+        dll.displayRev();
+    }
 
-       // insert at an index
+    private static void singlyLinkedList() {
+        SLL sll=new SLL();
+        sll.add(4);
+        sll.add(10);
+        sll.addEnd(20);
+        sll.addEnd(30);
+
+        // insert at an index
         sll.addAtIndex(100, 2);
         sll.addAtIndex(201, 1);
         sll.displayListContent();
