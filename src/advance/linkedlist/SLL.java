@@ -131,7 +131,7 @@ public class SLL {
     public int deleteByIndex(int index){
         if (index == 0)
             return delete();
-        if (index == -1)
+        if (index == (size - 1))
             return deleteLast();
 
         Node prev = getNode(index - 1); // the previous node
@@ -162,5 +162,37 @@ public class SLL {
             temp = temp.next;
         }
         System.out.println("END");
+    }
+
+    // Insert a node in a sorted singly linked list
+    public Node insertSorted(int data){
+        Node newNode = new Node(data);
+        Node temp = head;
+
+        if (temp == null || temp.data >= newNode.data){
+            newNode.next = temp;
+            head = newNode;
+            return newNode;
+        }
+        while (temp.next.data < newNode.data){
+            temp = temp.next;
+        }
+        newNode.next = temp.next;
+        temp.next = newNode;
+        return newNode;
+    }
+
+
+    public boolean isCycle(){
+        Node turtle = head;
+        Node hare = head;
+
+        while (hare != null && hare.next != null){
+            turtle = turtle.next;
+            hare = hare.next.next;
+            if (turtle == hare)
+                return true;
+        }
+        return false;
     }
 }

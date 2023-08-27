@@ -14,10 +14,8 @@ public class WorkingWithStrings {
         }
         int counter = 0;
         String[] word = sentence.split(" ");
-        int i = 0;
-        while ( i < word.length){
+        for (int i = 0; i < word.length; i++){
             counter++;
-            i++;
         }
         return counter;
     }

@@ -1,5 +1,6 @@
 import advance.linkedlist.CircularLinkedList;
 import advance.linkedlist.DLL;
+import advance.linkedlist.Play;
 import advance.linkedlist.SLL;
 import intermediate.ArraysHub;
 import oops.ProductionWorker;
@@ -12,8 +13,22 @@ import java.util.Date;
 import java.util.List;
 import java.util.concurrent.atomic.AtomicReference;
 
+
 public class Main {
     public static void main(String[] args) {
+        Play play=new Play();
+        play.insertFirstDll(10);
+        play.insertFirstDll(30);
+        play.insertFirstDll(20);
+        play.insertLastDll(100);
+        play.insertAtIndex(20, 200);
+        play.displayDll();
+        play.deleteLastNode();
+        System.out.println("Size: " + play.sizeDll());
+        play.displayDll();
+    }
+
+    private static void circular() {
         CircularLinkedList cll=new CircularLinkedList();
         cll.add(10);
         cll.display();

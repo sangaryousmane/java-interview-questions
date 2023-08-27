@@ -114,4 +114,14 @@ public class DLL {
         }
     }
 
+    public int sumOfDll(){
+       Node temp = head;
+       int sumOfDll = 0;
+       while (temp != null){
+           sumOfDll += temp.data;
+           temp = temp.next;
+       }
+       return sumOfDll;
+    }
+
 }
