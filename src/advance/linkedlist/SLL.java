@@ -142,22 +142,19 @@ public class SLL {
     // Find a node based on the value in a linked list
     // O(n)
     public Node findNode(int value) {
-        Node temp = head;
-
-        while (temp != null) {
-            if (temp.data == value) {
-                return temp;
-            }
-            temp = temp.next;
-        }
-        return null;
+       Node temp = head;
+       while (temp != null){
+           if (temp.data == value)
+               return temp;
+           temp = temp.next;
+       }
+       return null;
     }
 
     // Display content of the list
     public void displayListContent() {
         Node temp = head;
-
-        while (temp != null) {
+        while (temp != null){
             System.out.print(temp.data + " -> ");
             temp = temp.next;
         }
@@ -169,12 +166,13 @@ public class SLL {
         Node newNode = new Node(data);
         Node temp = head;
 
+        // if the number is smaller than the head
         if (temp == null || temp.data >= newNode.data){
             newNode.next = temp;
             head = newNode;
             return newNode;
         }
-        while (temp.next.data < newNode.data){
+        while (temp.next != null && temp.next.data < newNode.data){
             temp = temp.next;
         }
         newNode.next = temp.next;
@@ -183,6 +181,7 @@ public class SLL {
     }
 
 
+    // Find a loop or circle in a link list
     public boolean isCycle(){
         Node turtle = head;
         Node hare = head;
@@ -194,5 +193,19 @@ public class SLL {
                 return true;
         }
         return false;
+    }
+
+    // Insert in a linked list using recursion
+    public void insertUsingRecursion(int value, int index){
+        head = recurNode(value, index, head);
+    }
+    private Node recurNode(int value, int index, Node newNode) {
+        if (index == 0) {
+            Node node = new Node(value, newNode);
+            size++;
+            return node;
+        }
+        newNode.next = recurNode(value, index--, newNode);
+        return newNode;
     }
 }

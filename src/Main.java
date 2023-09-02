@@ -16,16 +16,10 @@ import java.util.concurrent.atomic.AtomicReference;
 
 public class Main {
     public static void main(String[] args) {
-        Play play=new Play();
-        play.insertFirstDll(10);
-        play.insertFirstDll(30);
-        play.insertFirstDll(20);
-        play.insertLastDll(100);
-        play.insertAtIndex(20, 200);
-        play.displayDll();
-        play.deleteLastNode();
-        System.out.println("Size: " + play.sizeDll());
-        play.displayDll();
+        SLL play=new SLL();
+        play.insertUsingRecursion(10, 0);
+        play.insertUsingRecursion(30, 0);
+        play.displayListContent();
     }
 
     private static void circular() {
