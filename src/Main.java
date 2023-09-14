@@ -1,35 +1,70 @@
-import advance.linkedlist.CircularLinkedList;
-import advance.linkedlist.DLL;
-import advance.linkedlist.Play;
-import advance.linkedlist.SLL;
+import advance.linkedlist.*;
 import intermediate.ArraysHub;
 import oops.ProductionWorker;
 import oops.ShiftSupervisor;
+import org.w3c.dom.Node;
 import recursive.Recursion;
 
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.Date;
-import java.util.List;
+import java.util.*;
 import java.util.concurrent.atomic.AtomicReference;
 
 
 public class Main {
     public static void main(String[] args) {
-        SLL play=new SLL();
-        play.insertUsingRecursion(10, 0);
-        play.insertUsingRecursion(30, 0);
-        play.displayListContent();
+        Queue<Integer> deque = new ArrayDeque<>(64);
+
+
     }
 
+    private static void queue() {
+        Queue<String> names=new LinkedList<>();
+        names.add("Laye");
+        names.add("Kadiatu");
+        names.add("Aisha");
+        System.out.println(names);
+        System.out.println(names.peek());
+        System.out.println(names);
+        names.remove("Aisha");
+        System.out.println(names);
+    }
+
+    private static void stack_impl() {
+        Stack<Integer> stack=new Stack<>();
+        stack.push(10);
+        stack.push(15);
+        stack.push(20);
+        System.out.println(stack);
+        System.out.println(stack.pop());
+        System.out.println(stack);
+    }
+
+    public static int squareOfDigits(int n){
+        int ans = 0;
+        while (n > 0){
+            int remainder = n % 10;
+            ans += remainder;
+            n /=10;
+        }
+        return ans;
+    }
+
+    public static int sumOfDigits(int n){
+        int sum = 0;
+        while (n > 0){
+            int remainder = n % 10;
+            sum += remainder * remainder;
+            n /=10;
+        }
+        return sum;
+    }
     private static void circular() {
-        CircularLinkedList cll=new CircularLinkedList();
+        CircularLinkedList cll = new CircularLinkedList();
         cll.add(10);
         cll.display();
     }
 
     private static void doublyLinked() {
-        DLL dll=new DLL();
+        DLL dll = new DLL();
         dll.add(10);
         dll.add(100);
         dll.add(90);
@@ -40,7 +75,7 @@ public class Main {
     }
 
     private static void singlyLinkedList() {
-        SLL sll=new SLL();
+        SLL sll = new SLL();
         sll.add(4);
         sll.add(10);
         sll.addEnd(20);
