@@ -2,17 +2,17 @@ package advance.stacksqueues;
 
 import java.util.Arrays;
 
-public class Customs {
+public class CustomStack {
 
     protected int[] data;
     private static final int DEFAULT_SIZE = 10;
     int ptr = -1;
 
-    public Customs() {
+    public CustomStack() {
         this(DEFAULT_SIZE);
     }
 
-    public Customs(int size) {
+    public CustomStack(int size) {
         this.data = new int[size];
     }
 
@@ -30,8 +30,8 @@ public class Customs {
         if (isFull()){
             throw new StackIsEmptyException("Stack is full");
         }
-        ptr++;
-        data[ptr] = item;
+//        ptr++;
+        data[++ptr] = item; // first increment the pointer before assigning
     }
 
     // Remove an element from the top of the stack

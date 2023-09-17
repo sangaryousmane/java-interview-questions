@@ -1,6 +1,6 @@
 package advance.stacksqueues;
 
-public class DynamicStack extends Customs{
+public class DynamicStack extends CustomStack {
 
     public DynamicStack(int size){
         super(size);

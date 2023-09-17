@@ -1,15 +1,14 @@
 package advance.stacksqueues;
 
-import java.util.Stack;
-
 public class CustomMain {
 
     public static void main(String[] args) {
-        CustomQueues queue=new CustomQueues(5);
-        queue.insert(4);
-        queue.insert(5);
-        queue.insert(2);
-        queue.insert(6);
-        queue.display();
+        QueueLinkedList q = new QueueLinkedList();
+        q.enqueue(30);
+        q.enqueue(10);
+        q.enqueue(20);
+        System.out.println("Before: " + q.displayQueue());
+        System.out.println("REMOVED: " + q.dequeue());
+        System.out.println("After: " + q.displayQueue());
     }
 }
