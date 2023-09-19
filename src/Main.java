@@ -1,8 +1,9 @@
-import advance.linkedlist.*;
+import advance.linkedlist.CircularLinkedList;
+import advance.linkedlist.DLL;
+import advance.linkedlist.SLL;
 import intermediate.ArraysHub;
 import oops.ProductionWorker;
 import oops.ShiftSupervisor;
-import org.w3c.dom.Node;
 import recursive.Recursion;
 
 import java.util.*;
@@ -11,13 +12,30 @@ import java.util.concurrent.atomic.AtomicReference;
 
 public class Main {
     public static void main(String[] args) {
-        Queue<Integer> deque = new ArrayDeque<>(64);
+        Scanner scan=new Scanner(System.in);
+        int[][] matrix = {
+                {5, 6, 7},
+                {8, 9, 10},
+                {11, 12, 13}};
+        for (int[] row: matrix){
+            for (int col: row){
+                System.out.print(col + " | ");
+            }
+            System.out.println();
+        }
 
+        System.out.println("Please enter a row and a column: ");
+
+        while (true) {
+            int row = scan.nextInt();
+            int col = scan.nextInt();
+            System.out.println(matrix[row][col] + " ");
+        }
 
     }
 
     private static void queue() {
-        Queue<String> names=new LinkedList<>();
+        Queue<String> names = new LinkedList<>();
         names.add("Laye");
         names.add("Kadiatu");
         names.add("Aisha");
@@ -29,7 +47,7 @@ public class Main {
     }
 
     private static void stack_impl() {
-        Stack<Integer> stack=new Stack<>();
+        Stack<Integer> stack = new Stack<>();
         stack.push(10);
         stack.push(15);
         stack.push(20);
@@ -38,25 +56,26 @@ public class Main {
         System.out.println(stack);
     }
 
-    public static int squareOfDigits(int n){
+    public static int squareOfDigits(int n) {
         int ans = 0;
-        while (n > 0){
+        while (n > 0) {
             int remainder = n % 10;
             ans += remainder;
-            n /=10;
+            n /= 10;
         }
         return ans;
     }
 
-    public static int sumOfDigits(int n){
+    public static int sumOfDigits(int n) {
         int sum = 0;
-        while (n > 0){
+        while (n > 0) {
             int remainder = n % 10;
             sum += remainder * remainder;
-            n /=10;
+            n /= 10;
         }
         return sum;
     }
+
     private static void circular() {
         CircularLinkedList cll = new CircularLinkedList();
         cll.add(10);
