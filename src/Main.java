@@ -2,6 +2,7 @@ import advance.linkedlist.CircularLinkedList;
 import advance.linkedlist.DLL;
 import advance.linkedlist.SLL;
 import intermediate.ArraysHub;
+import intermediate.Sorting;
 import oops.ProductionWorker;
 import oops.ShiftSupervisor;
 import recursive.Recursion;
@@ -9,29 +10,36 @@ import recursive.Recursion;
 import java.util.*;
 import java.util.concurrent.atomic.AtomicReference;
 
+import static intermediate.Sorting.swap;
+
 
 public class Main {
     public static void main(String[] args) {
-        Scanner scan=new Scanner(System.in);
-        int[][] matrix = {
-                {5, 6, 7},
-                {8, 9, 10},
-                {11, 12, 13}};
-        for (int[] row: matrix){
-            for (int col: row){
-                System.out.print(col + " | ");
+        int[] nums = {19, 48, 99, 71, 13, 52, 96, 73, 86, 7};
+        Sorting.quickSort(nums, 0, nums.length - 1);
+        System.out.println(Arrays.toString(nums));
+    }
+
+    static void bubble_sort(int[] array, int size) {
+        int i, j;
+
+        if (array == null || size < 2)
+            return;
+
+        for (i = 0; i < size; i++) {
+            for (j = 1; j < size - i; j++) {
+                if (array[j] < array[j - 1]) {
+                    int temp = array[j];
+                    array[j] = array[j - 1];
+                    array[j - 1] = temp;
+                }
             }
-            System.out.println();
         }
+    }
 
-        System.out.println("Please enter a row and a column: ");
 
-        while (true) {
-            int row = scan.nextInt();
-            int col = scan.nextInt();
-            System.out.println(matrix[row][col] + " ");
-        }
-
+    public static void bubbleSort(int[] arr) {
+        bubble_sort(arr, arr.length);
     }
 
     private static void queue() {

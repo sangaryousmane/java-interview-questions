@@ -1,7 +1,9 @@
 package intermediate;
 
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
+
 
 public class Sorting {
 
@@ -86,7 +88,7 @@ public class Sorting {
         while (i < nums.length) {
 
             if (nums[0] == 0)
-                 correctIndex = nums[i]; // from 0 to n
+                correctIndex = nums[i]; // from 0 to n
             else
                 correctIndex = nums[i] - 1; // from 1 to n
 
@@ -152,8 +154,7 @@ public class Sorting {
                     arr[j - 1] = temp;
                     // arr[j] = current element
                     // arr[j-1] = previous element
-                }
-                else
+                } else
                     break;
             }
         }
@@ -167,22 +168,17 @@ public class Sorting {
         // swap maximum number with last index
         // keep taking the minimum number in the array and swap it with the
         // number at the last index
-
-        for (int i = 0; i < arr.length; i++){
-            int lastIndex = arr.length - i - 1;
-            int start = 0;
-            int maxNum = getMaxIndex(arr, start, lastIndex);
-
-            for (int j = start; j<= lastIndex; j++){
-                if (arr[maxNum] < arr[j])
-                    maxNum=j;
-            }
-
-            // Swap
-            int temp = arr[maxNum];
-            arr[maxNum] = arr[lastIndex];
-            arr[lastIndex] = temp;
+        for (int i = 0; i < arr.length; i++) {
+            int lastIndex = arr.length - i - 1; // select the last element
+            int maxIndex = getMaxIndex(arr, 0, lastIndex); // select the maximum element
+            swap(arr, maxIndex, lastIndex); // Swap the elements when condition is true
         }
+    }
+
+    public static void swap(int[] arr, int first, int second) {
+        int temp = arr[first];
+        arr[first] = arr[second];
+        arr[second] = temp;
     }
 
     private static int getMaxIndex(int[] arr, int start, int lastIndex) {
@@ -196,25 +192,54 @@ public class Sorting {
     }
 
     public static void bubbleSort(int[] arr) {
-        // [3, 1, 2, 10] = [1,3,2,10] = [1,2,3,10]
-        // iterate through the arr
-        // check if the current number is less than the previous
-        // NB: the current number starts at index 1
-        // the previous is current index - 1
-        boolean isSwapped;
+//        boolean isSwapped;
+        // Get an outer for loop as a counter
+        // Get an inner for loop for swapping elements of the array
+        // if the current element is greater than the previous element, swap
+        System.out.println(Arrays.toString(arr));
         for (int i = 0; i < arr.length; i++) {
-            isSwapped = false;
+//            isSwapped = false;
 
             for (int j = 1; j < arr.length - i; j++) {
                 if (arr[j] < arr[j - 1]) {
                     int temp = arr[j];
                     arr[j] = arr[j - 1];
                     arr[j - 1] = temp;
-                    isSwapped = true;
+//                    isSwapped = true;
+                    System.out.println(Arrays.toString(arr));
                 }
             }
-            if (!isSwapped) // base case where there was no swapping
-                break;
+//            if (!isSwapped) // if there was no swapping
+//                break;
         }
+    }
+
+
+    public static void quickSort(int[] nums, int smallest, int highest) {
+        if (smallest >= highest)
+            return;
+
+        int start = smallest;
+        int end = highest;
+        int middle = start + (end - start) / 2;
+        int pivot = nums[middle];
+
+        while (start <= end) {
+            while (nums[start] < pivot)
+                start++;
+
+            while (nums[end] > pivot)
+                end--;
+
+            if (start <= end) {
+                swap(nums, start, end);
+                start++;
+                end--;
+            }
+        }
+
+        // my pivot is at correct index, sort the two halves now
+        quickSort(nums, smallest, end);
+        quickSort(nums, start, highest);
     }
 }
