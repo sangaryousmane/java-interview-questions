@@ -192,25 +192,25 @@ public class Sorting {
     }
 
     public static void bubbleSort(int[] arr) {
-//        boolean isSwapped;
+        boolean isSwapped;
         // Get an outer for loop as a counter
         // Get an inner for loop for swapping elements of the array
         // if the current element is greater than the previous element, swap
         System.out.println(Arrays.toString(arr));
         for (int i = 0; i < arr.length; i++) {
-//            isSwapped = false;
+            isSwapped = false;
 
             for (int j = 1; j < arr.length - i; j++) {
                 if (arr[j] < arr[j - 1]) {
                     int temp = arr[j];
                     arr[j] = arr[j - 1];
                     arr[j - 1] = temp;
-//                    isSwapped = true;
+                    isSwapped = true;
                     System.out.println(Arrays.toString(arr));
                 }
             }
-//            if (!isSwapped) // if there was no swapping
-//                break;
+            if (!isSwapped) // if there was no swapping
+                break;
         }
     }
 
