@@ -145,16 +145,21 @@ public class Sorting {
 
     // Perform insertion sort. It is stable
     public static void insertionSort(int[] arr) {
-        //[ 2, 4,1,0]
+        // Take a number and compare it with previous nums
+        // Insert it to the rightful position
+        // Repeat this until the entire array is sorted for n - 1 where j > 0
+
+        if (arr == null || arr.length < 2)
+            return;
+
         for (int i = 0; i < arr.length - 1; i++) {
             for (int j = i + 1; j > 0; j--) {
                 if (arr[j] < arr[j - 1]) {
                     int temp = arr[j];
                     arr[j] = arr[j - 1];
                     arr[j - 1] = temp;
-                    // arr[j] = current element
-                    // arr[j-1] = previous element
-                } else
+                }
+                else
                     break;
             }
         }
@@ -212,34 +217,5 @@ public class Sorting {
             if (!isSwapped) // if there was no swapping
                 break;
         }
-    }
-
-
-    public static void quickSort(int[] nums, int smallest, int highest) {
-        if (smallest >= highest)
-            return;
-
-        int start = smallest;
-        int end = highest;
-        int middle = start + (end - start) / 2;
-        int pivot = nums[middle];
-
-        while (start <= end) {
-            while (nums[start] < pivot)
-                start++;
-
-            while (nums[end] > pivot)
-                end--;
-
-            if (start <= end) {
-                swap(nums, start, end);
-                start++;
-                end--;
-            }
-        }
-
-        // my pivot is at correct index, sort the two halves now
-        quickSort(nums, smallest, end);
-        quickSort(nums, start, highest);
     }
 }

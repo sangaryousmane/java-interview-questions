@@ -1,30 +1,54 @@
 package intermediate;
 
 import java.util.Arrays;
+import java.util.Random;
+
+import static intermediate.Quicksort.printArray;
 
 public class MergeSort {
     public static void main(String[] args) {
-        int[] nums = {5, 4, 3, 2, 1};
-        System.out.println("Before: " + Arrays.toString(nums));
-        nums = mergeSort(nums);
-        System.out.println("After: " + Arrays.toString(nums));
+        Random random=new Random();
+        int[] nums=new int[100];
+        long startTime = System.currentTimeMillis();
+
+        for (int i = 0; i < nums.length; i++){
+            nums[i] = random.nextInt(100);
+        }
+        printArray(nums);
+        mergeSort(nums);
+        long endTime = System.currentTimeMillis();
+        System.out.println("After: ");
+         printArray(nums);
+        System.out.println("\nTime taken: " + (endTime - startTime) + "ms");
+
     }
 
 
-    static int[] mergeSort(int[] nums) {
+    static void mergeSort(int[] nums) {
 
-        if (nums.length == 1)
-            return nums;
+        if (nums == null || nums.length < 2)
+            return;
 
-        int middle = nums.length / 2;
-        int[] left = mergeSort(Arrays.copyOfRange(nums, 0, middle));
-        int[] right = mergeSort(Arrays.copyOfRange(nums, middle, nums.length));
+        int n = nums.length;
+        int middle = n / 2;
+        int[] left = new int[middle];
+        int[] right = new int[n - middle];
 
-        return merge(left, right);
+        for (int i=0; i < middle; i++){
+            left[i] = nums[i];
+        }
+        for (int j = middle; j < n; j++){
+            right[j - middle] = nums[j];
+        }
+        mergeSort(left); // sort
+        mergeSort(right); // sort
+
+        // merge both halves
+        merge(nums, left, right); // Merge
     }
 
-    private static int[] merge(int[] first, int[] second) {
-        int[] mix = new int[first.length + second.length];
+    private static void merge(int[] mix, int[] first, int[] second)
+    {
         int i = 0, j = 0, k = 0;
 
         while (i < first.length && j < second.length) {
@@ -38,7 +62,7 @@ public class MergeSort {
             k++;
         }
 
-        // At the end, it may be possible that one of the arrays it not complete
+        // At the end, it may be possible that one of the arrays is not complete
         // copy the remaining elements. Please note that either of the loops will run
         while (i < first.length) {
             mix[k] = first[i];
@@ -51,6 +75,5 @@ public class MergeSort {
             j++;
             k++;
         }
-        return mix;
     }
 }

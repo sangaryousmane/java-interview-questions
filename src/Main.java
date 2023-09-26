@@ -2,6 +2,7 @@ import advance.linkedlist.CircularLinkedList;
 import advance.linkedlist.DLL;
 import advance.linkedlist.SLL;
 import intermediate.ArraysHub;
+import intermediate.Quicksort;
 import intermediate.Sorting;
 import oops.ProductionWorker;
 import oops.ShiftSupervisor;
@@ -16,30 +17,13 @@ import static intermediate.Sorting.swap;
 public class Main {
     public static void main(String[] args) {
         int[] nums = {19, 48, 99, 71, 13, 52, 96, 73, 86, 7};
-        Sorting.quickSort(nums, 0, nums.length - 1);
+        Quicksort.quickSort(nums, 0, nums.length - 1);
         System.out.println(Arrays.toString(nums));
     }
 
     static void bubble_sort(int[] array, int size) {
         int i, j;
 
-        if (array == null || size < 2)
-            return;
-
-        for (i = 0; i < size; i++) {
-            for (j = 1; j < size - i; j++) {
-                if (array[j] < array[j - 1]) {
-                    int temp = array[j];
-                    array[j] = array[j - 1];
-                    array[j - 1] = temp;
-                }
-            }
-        }
-    }
-
-
-    public static void bubbleSort(int[] arr) {
-        bubble_sort(arr, arr.length);
     }
 
     private static void queue() {
@@ -68,7 +52,7 @@ public class Main {
         int ans = 0;
         while (n > 0) {
             int remainder = n % 10;
-            ans += remainder;
+            ans  += remainder * remainder;
             n /= 10;
         }
         return ans;
@@ -138,22 +122,6 @@ public class Main {
                 notFound.add(index + 1);
         }
         return notFound;
-    }
-
-    static void selection(int[] arr) {
-
-        for (int i = 0; i < arr.length - 1; i++) {
-            for (int j = i + 1; j > 0; j--) {
-                if (arr[j] < arr[j - 1]) {
-                    int temp = arr[j];
-                    arr[j] = arr[j - 1];
-                    arr[j - 1] = temp;
-                } else {
-                    break;
-                }
-            }
-        }
-        System.out.println(Arrays.toString(arr));
     }
 
     private static void checkMatrix() {
