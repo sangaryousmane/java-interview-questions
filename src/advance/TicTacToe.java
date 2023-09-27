@@ -12,9 +12,10 @@ public class TicTacToe {
             }
         }
 
+
         // Initialize player
         char player = 'X';
-        boolean isGameOver = false; // the hasn't start yet
+        boolean isGameOver = false; // the game hasn't start yet
 
         Scanner scanner = new Scanner(System.in);
         while (!isGameOver) {
@@ -31,8 +32,8 @@ public class TicTacToe {
                     System.out.println("Player " + player + " has won");
                 else {
                     // checks for the player that plays, switch between players
-                    // if the player that plays is X, place the O character on the board
-                    // if the player that plays is not X, place the X character on the board
+                    // if the player that plays is X, place the X character on the board
+                    // if the player that plays is not X, place the O character on the board
                     player = (player == 'X') ? 'O' : 'X';
                 }
             } else {

@@ -6,7 +6,7 @@ public class DoublyLinkedList {
     public DoublyLinkedList() {
     }
 
-    private class Node {
+    public class Node {
         private int data;
         private Node next;
         private Node prev;
@@ -26,8 +26,9 @@ public class DoublyLinkedList {
         Node newNode = new Node(data);
         newNode.next = head;
         newNode.prev = null;
-        if (head != null)
+        if (head != null){
             head.prev = newNode;
+        }
         head = newNode;
     }
 
@@ -116,10 +117,11 @@ public class DoublyLinkedList {
         dll.addFirst(50);
         dll.addFirst(30);
         dll.addFirst(20);
+        dll.display();
         dll.addLast(1);
         dll.display();
-        dll.deleteAtEnd();
-        dll.display();
+
+
     }
 
 }
