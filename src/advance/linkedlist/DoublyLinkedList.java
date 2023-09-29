@@ -23,9 +23,10 @@ public class DoublyLinkedList {
 
     // Add element to the DLL
     public void addFirst(int data) {
-        Node newNode = new Node(data);
-        newNode.next = head;
+        Node newNode=new Node(data);
         newNode.prev = null;
+        newNode.next = head;
+
         if (head != null){
             head.prev = newNode;
         }
@@ -34,21 +35,21 @@ public class DoublyLinkedList {
 
     // Add last
     public void addLast(int data) {
-        Node newNode = new Node(data);
-        Node lastNode = head;
+        Node newNode=new Node(data);
         newNode.next = null;
 
-        if (head == null) {
+        if (head == null){
             newNode.prev = null;
             head = newNode;
             return;
         }
 
-        while (lastNode.next != null) {
-            lastNode = lastNode.next;
+        Node temp = head;
+        while (temp.next != null){
+            temp = temp.next;
         }
-        lastNode.next = newNode;
-        newNode.prev = lastNode;
+        temp.next = newNode;
+        temp.prev = newNode;
     }
 
     // Get an element at a specific index
@@ -62,9 +63,9 @@ public class DoublyLinkedList {
 
     // Delete element at the beginning
     public int delete() {
-        if (head == null) {
+        if (head == null)
             return -1;
-        }
+
         int data = head.data;
         head = head.next;
         if (head != null)
@@ -118,7 +119,11 @@ public class DoublyLinkedList {
         dll.addFirst(30);
         dll.addFirst(20);
         dll.display();
-        dll.addLast(1);
+        dll.addLast(100);
+        dll.display();
+        dll.addFirst(4);
+        dll.display();
+        dll.delete();
         dll.display();
 
 
