@@ -17,8 +17,8 @@ public class FourthTasks {
 //            max = c;
 //            min = a;
 //        }
-//        System.out.println("Maximum is: " + max);
-//        System.out.println("Minimum is: "+ min);
+//        System.out.txt.println("Maximum is: " + max);
+//        System.out.txt.println("Minimum is: "+ min);
 //    }
         int maximum = a;
         if (b >= maximum) {
@@ -42,12 +42,12 @@ public class FourthTasks {
         return min;
     }
 
-    // 3. A person is eligible to vote if his/her age is greater than or equal to 18. Define a method to find out if he/she is eligible to vote.
+    // 3. A person is eligible to vote if his/her age is greater than or equal to 18. Define a method to find out.txt if he/she is eligible to vote.
     public static boolean eligibleToVote(int age){
         return age >= 18;
     }
 
-    // 7. Define a method to find out if a number is prime or not.
+    // 7. Define a method to find out.txt if a number is prime or not.
     public static boolean isPrime(int n){
         int i = 1, primeCounter = 0;
         while (i <= n){

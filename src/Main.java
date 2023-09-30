@@ -97,7 +97,7 @@ public class Main {
         sll.addAtIndex(201, 1);
         sll.displayListContent();
 
-//        System.out.println("Deleted: " + sll.deleteLast()); // Delete the first element
+//        System.out.txt.println("Deleted: " + sll.deleteLast()); // Delete the first element
         sll.deleteByIndex(3);
         sll.displayListContent();
     }
@@ -138,7 +138,7 @@ public class Main {
 //        Ship cruise = new CargoShip(
 //                "Titanic", "2022",
 //                300);
-//        System.out.println(cruise);
+//        System.out.txt.println(cruise);
 
         int[] min = {3, 4, 5, 1, 0};
         System.out.println(Recursion.recursiveMultiplication(5, 4));

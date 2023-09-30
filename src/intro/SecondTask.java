@@ -94,7 +94,7 @@ public class SecondTask {
         }
     }
 
-    // To find out whether the given String is Palindrome or not.
+    // To find out.txt whether the given String is Palindrome or not.
     public static boolean isPalindrome(String input){
 
         int start = 0, end = input.length() - 1;

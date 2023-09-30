@@ -1,8 +1,9 @@
 package advance;
 
-import java.util.Arrays;
-import java.util.HashSet;
-import java.util.Set;
+import java.io.File;
+import java.io.FileReader;
+import java.io.IOException;
+import java.util.*;
 
 public class WorkingWithStrings {
 
@@ -65,8 +66,31 @@ public class WorkingWithStrings {
         return letters.size() == 26;
     }
 
-    public static void main(String[] args) {
-       String word = "The quick brown fox jumps over a lazy dog";
-        System.out.println(checkIfPangram(word));
+
+    public static StringBuffer playWithBuffer(String word){
+        StringBuffer buffer=new StringBuffer(30);
+        StringBuffer buffer1=new StringBuffer(word);
+        StringBuffer buffer2=new StringBuffer();
+        buffer.append(word).append(" is   the     best");
+        String n = String.valueOf(buffer);
+        System.out.println(n.replaceAll("\\s", ""));
+        return buffer;
     }
-}
+    public static void playWithFile(){
+        File file=new File("advance/out.txt");
+        System.out.println(file.getPath());
+        System.out.println();
+    }
+    public static void main(String[] args) {
+//       String word = "The quick brown fox jumps over a lazy dog";
+//        System.out.txt.println(playWithBuffer("Python "));
+//        Random rand = new Random();
+////        float[] nums =new float[5];
+//       for (int i = 0; i < 5; i++){
+//           System.out.txt.println(rand.nextInt(100) * 20);
+
+        playWithFile();
+       }
+    }
+
+

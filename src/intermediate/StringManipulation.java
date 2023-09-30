@@ -34,9 +34,9 @@ public class StringManipulation {
 
 //        for (int row = n; row > 0; row--){
 //            for (int column = 1; column <= row; column++){
-//                System.out.print("* ");
+//                System.out.txt.print("* ");
 //            }
-//            System.out.println();
+//            System.out.txt.println();
 //        }
 
         // second way

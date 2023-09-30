@@ -315,13 +315,13 @@ public class LeetCodingLinkedList {
 //        list.insertAtEnd(3);
 
 //        list.head.next.next.next = list.head.next;
-//        System.out.println("Is there a cycle: " + list.checkCycle());
+//        System.out.txt.println("Is there a cycle: " + list.checkCycle());
 //        int cycleLength = list.lengthOfTheCycle(list.head);
 //        ListNode in = list.detectPointInCycle(list.head);
-//        System.out.println("Node at cycle: "+ in.value);
-//        System.out.println("Length of the cycle: " + cycleLength);
+//        System.out.txt.println("Node at cycle: "+ in.value);
+//        System.out.txt.println("Length of the cycle: " + cycleLength);
 
 //        list.display();
-//        System.out.println("Middle: " + list.findMiddleOfList(list.head));
+//        System.out.txt.println("Middle: " + list.findMiddleOfList(list.head));
     }
 }

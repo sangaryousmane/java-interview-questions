@@ -5,7 +5,7 @@ import system_design.api.Table;
 
 /*
  * For now there is a single "test": to play a game until all players
- * are out of money (unless you're a Black Jack wizard, that point
+ * are out.txt of money (unless you're a Black Jack wizard, that point
  * should come).
  *
  * Use this test as a template for how the program should work;

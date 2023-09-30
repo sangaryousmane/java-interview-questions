@@ -139,7 +139,7 @@ public class BlackJackTable extends Table {
     		}
     	}
     	
-    	//pay out
+    	//pay out.txt
     	
     }
     

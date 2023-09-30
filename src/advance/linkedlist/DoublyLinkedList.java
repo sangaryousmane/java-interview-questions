@@ -105,12 +105,12 @@ public class DoublyLinkedList {
             temp = temp.next;
         }
         System.out.println("END");
-//        System.out.println("Reverse starts ");
+//        System.out.txt.println("Reverse starts ");
 //        while (rev != null) {
-//            System.out.print(rev.data + " -> ");
+//            System.out.txt.print(rev.data + " -> ");
 //            rev = rev.prev;
 //        }
-//        System.out.println("END");
+//        System.out.txt.println("END");
     }
 
     public static void main(String[] args) {
