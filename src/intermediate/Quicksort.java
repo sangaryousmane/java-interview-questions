@@ -6,6 +6,7 @@ import static intermediate.Sorting.swap;
 
 public class Quicksort {
 
+    // Approach 1, without lomuto partition
     public static void quickSort(int[] nums, int smallest, int highest) {
         if (smallest >= highest)
             return;
@@ -35,15 +36,23 @@ public class Quicksort {
     }
 
 
-    // Quicksort using lomuto partition
+    public static void quicksortPretty(int[] nums){
+        quicksortLomuto(nums, 0, nums.length - 1);
+    }
+
+    // Approach 2, Quicksort using lomuto partition
     public static void quicksortLomuto(int[] nums, int start, int end) {
+        // First, check the case only one element left to sort
         if (start >= end || nums == null)
             return;
+
         int pivotIndex = partition(nums, start, end);
 
-        // Quick sort the partitions
-        quicksortLomuto(nums, start, pivotIndex - 1); // from start to the pivot
-        quicksortLomuto(nums, pivotIndex + 1, end); // from the pivot to the end
+        // Quick sort the elements on the left of pivot(excluding the pivot)
+        quicksortLomuto(nums, start, pivotIndex - 1);
+
+        // Quick sort the elements on the right of the pivot(excluding the pivot)
+        quicksortLomuto(nums, pivotIndex + 1, end);
     }
 
     private static int partition(int[] nums, int start, int end) {
@@ -51,39 +60,44 @@ public class Quicksort {
         int leftPointer = start;
         int rightPointer = end;
 
-        // Loop as long the element on the left is less than one of the right
         while (leftPointer < rightPointer) {
+
+            // Walk from the left to pivot
             while (nums[leftPointer] <= pivot && leftPointer < rightPointer) {
                 leftPointer++;
             }
+            // Walk from the right to pivot
             while (nums[rightPointer] >= pivot && leftPointer < rightPointer) {
                 rightPointer--;
             }
+
+            // If the left and right pointers meet, kindly swap them
             swap(nums, leftPointer, rightPointer);
         }
-        swap(nums, leftPointer, end); // swap left with the end
+        // Swap the left pointer with the last element of the array
+        swap(nums, leftPointer, end);
         return leftPointer;
     }
 
-    public static void printArray(int[] nums){
-        for (int i: nums){
+    public static void printArray(int[] nums) {
+        for (int i : nums) {
             System.out.print(i + " , ");
         }
         System.out.println(" ");
     }
 
     public static void main(String[] args) {
-        Random random=new Random();
-        int []nums= new int[10];
+        Random random = new Random();
+        int[] nums = new int[10];
 
-        for (int i = 0; i < nums.length; i++){
+        for (int i = 0; i < nums.length; i++) {
             nums[i] = random.nextInt(100);
         }
 
         System.out.println("BEFORE");
         printArray(nums);
 
-        quickSort(nums, 0, nums.length - 1);
+        quicksortPretty(nums);
 
         System.out.println("AFTER");
         printArray(nums);

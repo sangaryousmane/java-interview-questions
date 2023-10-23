@@ -1,11 +1,14 @@
 package intermediate;
 
+import java.util.Locale;
+
 public class StringManipulation {
 
+    public static void main(String[] args) {
+        Locale locale= Locale.forLanguageTag("tr-TR");
 
-    public static void manipulation(String name) {
-
-        System.out.println(name.charAt(5));
+        System.out.println("Taki".toLowerCase(locale)
+                .equals("TAKI".toLowerCase(locale)));
     }
 
     public static void pattern1(int n) {
