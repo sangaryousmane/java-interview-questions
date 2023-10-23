@@ -1,4 +1,4 @@
-package advance;
+package advance.trees;
 
 public class BinarySearchTree {
 

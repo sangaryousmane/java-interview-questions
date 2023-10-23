@@ -18,7 +18,7 @@ public class MergeSort {
         mergeSort(nums);
         long endTime = System.currentTimeMillis();
         System.out.println("After: ");
-         printArray(nums);
+        printArray(nums);
         System.out.println("\nTime taken: " + (endTime - startTime) + "ms");
 
     }
@@ -31,20 +31,23 @@ public class MergeSort {
 
         int n = nums.length;
         int middle = n / 2;
-        int[] left = new int[middle];
-        int[] right = new int[n - middle];
+        int[] leftSubArray = new int[middle];
+        int[] rightSubArray = new int[n - middle];
 
         for (int i=0; i < middle; i++){
-            left[i] = nums[i];
+            leftSubArray[i] = nums[i];
         }
         for (int j = middle; j < n; j++){
-            right[j - middle] = nums[j];
+            // start the right sub array from 0. eg: if middle is 5, j is also 5
+            // Therefore, 5 - 5 = 0. when j is 6, we get 6 - 5 = 1, when j is 7
+            // we get 7 - 5 = 2 and so on
+            rightSubArray[j - middle] = nums[j];
         }
-        mergeSort(left); // sort
-        mergeSort(right); // sort
+        mergeSort(leftSubArray); // sort leftSubArray sub array
+        mergeSort(rightSubArray); // sort rightSubArray sub array
 
         // merge both halves
-        merge(nums, left, right); // Merge
+        merge(nums, leftSubArray, rightSubArray); // Merge both leftSubArray and rightSubArray sub array
     }
 
     private static void merge(int[] mix, int[] first, int[] second)
@@ -52,7 +55,7 @@ public class MergeSort {
         int i = 0, j = 0, k = 0;
 
         while (i < first.length && j < second.length) {
-            if (first[i] < second[j]) {
+            if (first[i] <= second[j]) {
                 mix[k] = first[i];
                 i++;
             } else {
@@ -63,7 +66,7 @@ public class MergeSort {
         }
 
         // At the end, it may be possible that one of the arrays is not complete
-        // copy the remaining elements. Please note that either of the loops will run
+        // copy the remaining elements. Please note that either of the loops will run not both
         while (i < first.length) {
             mix[k] = first[i];
             i++;

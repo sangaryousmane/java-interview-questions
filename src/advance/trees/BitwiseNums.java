@@ -1,4 +1,4 @@
-package advance;
+package advance.trees;
 
 import java.math.BigDecimal;
 import java.math.BigInteger;

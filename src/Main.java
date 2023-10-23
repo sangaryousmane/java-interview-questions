@@ -17,8 +17,61 @@ import static intermediate.Sorting.swap;
 public class Main {
     public static void main(String[] args) {
         int[] nums = {19, 48, 99, 71, 13, 52, 96, 73, 86, 7};
-        Quicksort.quickSort(nums, 0, nums.length - 1);
+        mergeSort(nums);
         System.out.println(Arrays.toString(nums));
+    }
+
+    public static void mergeSort(int[] nums) {
+        int n = nums.length;
+        if (nums == null || n < 2)
+            return;
+
+        int midPoint = n / 2; // Divide the array into half
+        int[] leftHalf = new int[midPoint];
+        int[] rightHalf = new int[n - midPoint];
+
+        // Copy all elements from start to the midpoint
+        for (int i = 0; i < midPoint; i++) {
+            leftHalf[i] = nums[i];
+        }
+        // Copy all elements from the midpoint to the length
+        for (int i = midPoint; i < n; i++) {
+            rightHalf[i - midPoint] = nums[i];
+        }
+
+        mergeSort(leftHalf); // sort left half
+        mergeSort(rightHalf); // sort right half
+        merge(nums, leftHalf, rightHalf); // merge the left and right half
+    }
+
+    private static void merge(int[] merged, int[] first, int[] second) {
+
+        // Get three variables, i for the first, j for the second, k for the merged array
+        int i = 0, j = 0, k = 0;
+
+        while (i < first.length && j < second.length) {
+            if (first[i] <= second[j]) {
+                merged[k] = first[i];
+                i++;
+            } else {
+                merged[k] = second[j];
+                j++;
+            }
+            k++;
+        }
+
+        // Check for remaining elements in the left or right but not both
+        while (i < first.length){
+            merged[k] = first[i];
+            i++;
+            k++;
+        }
+
+        while (j < second.length){
+            merged[k] = second[j];
+            j++;
+            k++;
+        }
     }
 
     static void bubble_sort(int[] array, int size) {
@@ -52,7 +105,7 @@ public class Main {
         int ans = 0;
         while (n > 0) {
             int remainder = n % 10;
-            ans  += remainder * remainder;
+            ans += remainder * remainder;
             n /= 10;
         }
         return ans;

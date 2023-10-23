@@ -41,6 +41,7 @@ public class Quicksort {
     }
 
     // Approach 2, Quicksort using lomuto partition
+    // O(LOG(N)) on BEST and AVERAGE, O(N^2) on WORST CASE
     public static void quicksortLomuto(int[] nums, int start, int end) {
         // First, check the case only one element left to sort
         if (start >= end || nums == null)
@@ -87,8 +88,13 @@ public class Quicksort {
     }
 
     public static void main(String[] args) {
+        testQuickSort();
+    }
+
+    private static void testQuickSort() {
         Random random = new Random();
-        int[] nums = new int[10];
+        int[] nums = new int[1000];
+        long startTime = System.currentTimeMillis();
 
         for (int i = 0; i < nums.length; i++) {
             nums[i] = random.nextInt(100);
@@ -98,10 +104,12 @@ public class Quicksort {
         printArray(nums);
 
         quicksortPretty(nums);
+        long endTime  = System.currentTimeMillis();
 
         System.out.println("AFTER");
         printArray(nums);
 
-    }
+        System.out.println("\nTime taken: " + (endTime - startTime) + "ms");
 
+    }
 }
