@@ -1,5 +1,7 @@
 package advance.trees;
 
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Scanner;
 
 class Node {
@@ -101,20 +103,24 @@ public class BinaryTree {
     }
 
     public static void main(String[] args) {
-       BinaryTree tree=new BinaryTree();
-       tree.root = new Node(1);
-       tree.root.left = new Node(2);
-       tree.root.right = new Node(1);
+      printer();
 
-       BinaryTree tree1=new BinaryTree();
-       tree1.root = new Node(1);
-       tree1.root.left  = new Node(1);
-       tree1.root.right = new Node(2);
+    }
+
+    private static void symmm() {
+        BinaryTree tree=new BinaryTree();
+        tree.root = new Node(1);
+        tree.root.left = new Node(2);
+        tree.root.right = new Node(1);
+
+        BinaryTree tree1=new BinaryTree();
+        tree1.root = new Node(1);
+        tree1.root.left  = new Node(1);
+        tree1.root.right = new Node(2);
         System.out.println(isSameTree(tree.root, tree1.root));
 //        BinaryTree bTree=new BinaryTree();
 //        bTree.populate(new Scanner(System.in));
 //        bTree.display();
-
     }
 
     // https://leetcode.com/problems/same-tree/description/
@@ -157,13 +163,44 @@ public class BinaryTree {
         return isMirrorImage(node1.left, node2.right)
                 && isMirrorImage(node1.right,node2.left);
     }
+
+    // https://leetcode.com/problems/binary-tree-preorder-traversal/
+    List<Integer> result=new ArrayList<>();
+    public List<Integer> preorderTraversal(Node root) {
+        preOrderTraversal(root);
+        return result;
+    }
+
+    private void preOrderTraversal(Node root){
+        if (root == null)
+            return;
+
+        result.add(root.data);
+        preOrderTraversal(root.left);
+        preOrderTraversal(root.right);
+    }
+
+    // https://leetcode.com/problems/sum-of-left-leaves/
+    public int sumOfLeftLeaves(Node root){
+        if (root == null)
+            return 0;
+        int sum = 0;
+
+        if (root.left != null && root.left.left== null && root.left.right == null){
+            sum += root.left.data;
+        }
+        sum += sumOfLeftLeaves(root.left);
+        sum += sumOfLeftLeaves(root.right);
+        return sumOfLeftLeaves(root.left) + sumOfLeftLeaves(root.right);
+    }
+
     private static void printer() {
         BinaryTree bTree = new BinaryTree();
-        bTree.root = new Node(1);
-        bTree.root.left = new Node(12);
-        bTree.root.right = new Node(9);
-        bTree.root.left.left = new Node(5);
-        bTree.root.left.right = new Node(6);
+        bTree.root = new Node(3);
+        bTree.root.left = new Node(9);
+        bTree.root.right = new Node(20);
+        bTree.root.right.left = new Node(15);
+        bTree.root.right.right = new Node(7);
 
         System.out.println("Inorder Traversal");
         bTree.inOrder(bTree.root);
