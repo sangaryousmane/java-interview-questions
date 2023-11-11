@@ -187,9 +187,7 @@ public class LeetCodingLinkedList {
             fast = squareOfDigits(squareOfDigits(n));
         } while (slow != fast);
 
-        if (slow == 1)
-            return true;
-        return false;
+        return slow == 1;
     }
 
     // Find square of digits

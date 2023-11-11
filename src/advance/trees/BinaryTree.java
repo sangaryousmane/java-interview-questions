@@ -21,6 +21,35 @@ class Node {
 public class BinaryTree {
     Node root;
 
+
+    public int heightOfTheTree(Node node){
+        if (node == null)
+            return 0;
+        return 1 + Math.max(heightOfTheTree(node.left),
+                heightOfTheTree(node.right));
+    }
+
+    public int sizeOfTheTree(Node node){
+        if (node == null) return 0;
+        return (sizeOfTheTree(node.left) + sizeOfTheTree(node.right)) + 1;
+    }
+
+    public int countLeaves(Node node){
+        if (node == null)
+            return 0;
+        if(node.left == null && node.right == null)
+            return 1;
+       return countLeaves(node.left) + countLeaves(node.right);
+    }
+
+    public int countNonLeaves(Node node){
+        if (node == null || (node.left == null && node.right == null))
+            return 0;
+        int count = 1;
+        count += countLeaves(node.left);
+        count += countLeaves(node.right);
+        return count;
+    }
     // Pre order traversal
     public void preOrder(Node node) {
         if (node == null)
@@ -194,6 +223,19 @@ public class BinaryTree {
         return sumOfLeftLeaves(root.left) + sumOfLeftLeaves(root.right);
     }
 
+    // Check if the node is a leaf
+    public boolean isLeaf(Node node){
+        if (node == null)
+            return false;
+        return node.left == null || node.right == null;
+    }
+
+    public boolean isRootNode(Node node){
+        if(node == null)
+            return false;
+        return node.left != null && node.left != null;
+
+    }
     private static void printer() {
         BinaryTree bTree = new BinaryTree();
         bTree.root = new Node(3);
@@ -212,5 +254,6 @@ public class BinaryTree {
 
         System.out.println("postOrder Traversal");
         bTree.postOrder(bTree.root);
+        System.out.println(bTree.isRootNode(bTree.root.right));
     }
 }

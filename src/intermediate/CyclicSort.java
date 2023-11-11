@@ -81,10 +81,72 @@ public class CyclicSort {
                     int temp = nums[i];
                     nums[i] = nums[correctIndex];
                     nums[correctIndex] = temp;
-                } else return nums[i];
+                } else
+                    return nums[i];
             } else i++;
         }
         return -1;
+    }
+
+    // https://leetcode.com/problems/first-missing-positive/
+    public int firstMissingPositive(int[] nums) {
+        int i = 0;
+        int n = nums.length;
+
+        while (i < n) {
+            int correctIndex = nums[i] - 1;
+            if (nums[i] > 0 && nums[i] <= n && nums[i] != nums[correctIndex]) {
+                swap(nums, i, correctIndex);
+            } else i++;
+        }
+        for (int index = 0; index < n; index++) {
+            if (nums[index] != index + 1)
+                return index + 1;
+        }
+        return n + 1;
+    }
+
+    // https://leetcode.com/problems/missing-number/
+    public int missingNumber(int[] nums){
+        int i = 0;
+        int n = nums.length;
+        while (i < n){
+            int correctIndex=nums[i]; // from zero
+            if (nums[i] < n && nums[i] != nums[correctIndex]){
+                swap(nums, i, correctIndex);
+            }else i++;
+        }
+        for (int index = 0; index < n; index++){
+            if (nums[index] != index)
+                return index;
+        }
+        return n;
+    }
+
+    // https://leetcode.com/problems/find-all-duplicates-in-an-array/
+    public List<Integer> findDuplicates(int[] nums) {
+        int i = 0;
+        int n = nums.length;
+
+        while(i < n){
+            int correct = nums[i] - 1;
+
+            if (nums[i] != nums[correct]){
+                swap(nums, i, correct);
+            }else i++;
+        }
+        List<Integer> result = new ArrayList<>();
+        for (int index = 0; index < n; index++){
+            if (nums[index] != index + 1){
+                result.add(nums[index]);
+            }
+        }
+        return result;
+    }
+    private static void swap(int[] nums, int a, int b) {
+        int temp = nums[a];
+        nums[a] = nums[b];
+        nums[b] = temp;
     }
 
     public static void main(String[] args) {

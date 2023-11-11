@@ -42,15 +42,13 @@ public class Searching {
                 ans[0] = start + 1;
                 ans[1] = end + 1;
                 break;
-            }
-            else if (sum > target) {
+            } else if (sum > target) {
                 end--;
-            }
-            else {
+            } else {
                 start++;
             }
         }
-         return ans;
+        return ans;
     }
 
 //        int start = 0, end = nums.length - 1;
@@ -101,13 +99,12 @@ public class Searching {
         while (start <= end) {
             int mid = start + (end - start) / 2;
 
-            if (target == nums[mid]) {
-                return mid;
-            } else if (target < nums[mid]) {
+            if (target < nums[mid])
                 end = mid - 1;
-            } else {
+            else if (target > nums[mid])
                 start = mid + 1;
-            }
+            else
+                return mid;
         }
         return -1;
     }
@@ -131,8 +128,7 @@ public class Searching {
                     end = mid - 1;
                 else
                     start = mid + 1;
-            }
-            else {
+            } else {
                 if (target > nums[mid])
                     end = mid - 1; // move to left
                 else
