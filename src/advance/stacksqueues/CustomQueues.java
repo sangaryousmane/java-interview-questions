@@ -35,7 +35,7 @@ public class CustomQueues {
     }
 
     // Remove an element and shift the rest
-    public int remove(int item) throws Exception {
+    public int remove() throws Exception {
         if (isEmpty()) {
             throw new Exception("Queue is empty");
         }

@@ -1,0 +1,8 @@
+ Experiment | Dataset          | Preprocessing                      | Model Architecture                     | Training Duration | Test Accuracy | Precision | Recall | F1 Score |
+|------------|------------------|------------------------------------|-----------------------------------------|-------------------|---------------|-----------|--------|----------|
+| Experiment 1 | ImageNet        | Resize to (224x224), Normalize      | SGH-CNN (as described)                  | 12 hours           | 0.85          | 0.86      | 0.84   | 0.85     |
+| Experiment 2 | CIFAR-10         | Resize to (32x32), Augmentation, Normalize | SGH-CNN with additional CNN layers | 8 hours            | 0.78          | 0.79      | 0.77   | 0.78     |
+| Experiment 3 | MNIST            | Resize to (28x28), Normalize         | SGH-CNN with dropout layers            | 6 hours            | 0.96          | 0.97      | 0.95   | 0.96     |
+| Experiment 4 | Fashion MNIST    | Resize to (28x28), Normalize         | SGH-CNN with batch normalization       | 7 hours            | 0.91          | 0.92      | 0.90   | 0.91     |
+| Experiment 5 | Stanford Dogs    | Resize to (224x224), Normalize      | SGH-CNN with transfer learning (ResNet50) | 15 hours       | 0.89          | 0.90      | 0.88   | 0.89     |
+| Experiment 6 | Flowers          | Resize to (224x224), Normalize      | SGH-CNN with increased SGH resolution  | 10 hours           | 0.87          | 0.88      | 0.86   | 0.87     |

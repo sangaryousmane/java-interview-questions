@@ -1,6 +1,8 @@
 package advance;
 
+
 import java.io.File;
+import java.math.BigInteger;
 import java.text.SimpleDateFormat;
 import java.util.*;
 import java.util.regex.Pattern;
@@ -79,7 +81,7 @@ public class WorkingWithStrings {
 
     public static void playWithFile() {
         File file = new File("advance/out.txt");
-        System.out.println(file.getPath());
+        System.out.println(file.getParentFile());
         System.out.println();
     }
 
@@ -143,6 +145,7 @@ public class WorkingWithStrings {
         return sum;
     }
 
+    // O(n)
     // https://leetcode.com/problems/valid-parentheses/description/
     public static boolean isValid(String s) {
 
@@ -161,6 +164,21 @@ public class WorkingWithStrings {
         return stack.isEmpty();
     }
 
+    // https://leetcode.com/problems/minimum-add-to-make-parentheses-valid/description/
+    public int minAddToMakeValid(String s) {
+        Stack<Character> stack = new Stack<>();
+        for (char chr: s.toCharArray()){
+            if (chr == ')')
+                if(!stack.isEmpty() && stack.peek() == '(')
+                    stack.pop();
+                else
+                    stack.push(chr);
+            else
+                stack.push(chr);
+        }
+        return stack.size();
+    }
+
     // https://leetcode.com/problems/1-bit-and-2-bit-characters/description/
     public boolean isOneBitCharacter(int[] bits) {
         int i = 0, end = bits.length - 1;
@@ -173,7 +191,7 @@ public class WorkingWithStrings {
     }
 
     // https://leetcode.com/problems/a-number-after-a-double-reversal/description/
-    public boolean isSameAfterReversals(int num) {
+    public static boolean isSameAfterReversals(int num) {
         return num <= 9 && num % 10 != 0;
     }
 
@@ -187,18 +205,75 @@ public class WorkingWithStrings {
     }
 
     // https://leetcode.com/problems/integer-to-roman/description/
-    public String intToRoman(int num){
-        String[] ones = {"","I","II","III","IV","V","VI","VII","VIII","IX"};
-        String[] tens = {"","X","XX","XXX","XL","L","LX","LXX","LXXX","XC"};
-        String[] hrns = {"","C","CC","CCC","CD","D","DC","DCC","DCCC","CM"};
-        String[] ths ={"","M","MM","MMM"};
+    public String intToRoman(int num) {
+        String[] ones = {"", "I", "II", "III", "IV", "V", "VI", "VII", "VIII", "IX"};
+        String[] tens = {"", "X", "XX", "XXX", "XL", "L", "LX", "LXX", "LXXX", "XC"};
+        String[] hrns = {"", "C", "CC", "CCC", "CD", "D", "DC", "DCC", "DCCC", "CM"};
+        String[] ths = {"", "M", "MM", "MMM"};
         return ths[num / 1000] +
                 hrns[(num % 1000) / 100] +
                 tens[(num % 100) / 10] +
                 ones[num % 10];
     }
+
     public static void main(String[] args) {
-        System.out.println(101 % 9);
+        BigInteger a = new BigInteger("4");
+        BigInteger b = new BigInteger("5");
+
+
+    }
+
+    private static void moreCollections() {
+        List<String> data = Arrays.asList("ab", "bc", "cd", "ab", "bc", "cd");
+        Set<String> names = new HashSet<>(data);
+        SortedSet<String> names1 = new TreeSet<>(data);
+        Set<String> names2 = new LinkedHashSet<>(data);
+        Map<String, Boolean> names3 = new TreeMap<>();
+        Map<String, Boolean> names4 = new LinkedHashMap<>();
+        Map<String, Boolean> names5 = new HashMap<>(10);
+
+        names5.put("Java", true);
+        names5.put("Python", true);
+        names5.put("JS", true);
+        names5.put("GO", false);
+
+        HashMap<String, Boolean> names6 = new HashMap<>();
+
+        List<String> unModify = Collections.unmodifiableList(data);
+//        unModify.add("Hello"); // Can't be modify
+        unModify.forEach(System.out::println);
+
+        List<String> anEmptyList = Collections.emptyList();
+        Map<Integer, Date> anEmptyMap = Collections.emptyMap();
+        Set<Number> anEmptySet = Collections.emptySet();
+//        anEmptyList.addAll(data); // Can't modify mutable collections
+        System.out.println(anEmptyList);
+        NavigableSet<Integer> desc = new TreeSet<>();
+        desc.add(4);
+        desc.add(10);
+        desc.add(6);
+        desc.add(7);
+        System.out.println(desc);
+        System.out.println("Floor:" + desc.floor(8));
+        System.out.println("Ceiling:" + desc.ceiling(9));
+        System.out.println("Lower:" + desc.lower(6));
+        System.out.println("Higher:" + desc.higher(6));
+    }
+
+    private static void removeElementsInAList() {
+        //        String[] arr = new String[] {"str1", "str2", "str3"};
+//        Stream<String> stream = Arrays.stream(arr);
+//        stream.forEach(System.out::println)
+
+        List<String> fruits = new ArrayList<>();
+        fruits.add("Apple");
+        fruits.add("Banana");
+        fruits.add("Strawberry");
+
+//        System.out.println(fruits.stream().filter((f)->
+//                !"Banana".equals(f)).toList());
+        fruits.removeIf("Banana"::equals);
+        fruits.forEach(System.out::println);
     }
 }
 

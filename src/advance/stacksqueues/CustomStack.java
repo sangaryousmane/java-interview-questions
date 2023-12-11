@@ -26,8 +26,8 @@ public class CustomStack {
     }
 
     // add or push an item to the stack
-    public void push(int item){
-        if (isFull()){
+    public void push(int item) {
+        if (isFull()) {
             throw new StackIsEmptyException("Stack is full");
         }
 //        ptr++;
@@ -54,4 +54,34 @@ public class CustomStack {
     public String toString() {
         return Arrays.toString(data);
     }
+
+
+
+    // https://leetcode.com/problems/flood-fill/
+    public static int[][] floodFill(int[][] image, int sr,
+                                    int sc, int newColor) {
+        if (newColor == image[sr][sc])
+            return image;
+
+        int rows = image.length;
+        int cols = image[0].length;
+        int source = image[sr][sc];
+        dfs(image, sr, sc, newColor, rows, cols, source);
+        return image;
+    }
+
+    private static void dfs(int[][] image, int sr, int sc, int newColor,
+                     int rows, int cols, int source) {
+        if (sr < 0 || sr >= rows || sc < 0 || sc >= cols)
+            return;
+        else if (image[sr][sc] != source)
+            return;
+
+        image[sr][sc] = newColor;
+        dfs(image, sr - 1, sc, newColor, rows, cols, source); // TOP
+        dfs(image, sr + 1, sc, newColor, rows, cols, source); // DOWN
+        dfs(image, sr, sc-1, newColor, rows, cols, source); //LEFT
+        dfs(image, sr, sc+1, newColor, rows, cols, source); // RIGHT
+    }
+
 }

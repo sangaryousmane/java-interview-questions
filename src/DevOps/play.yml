@@ -1,4 +1,3 @@
-
 # Languages
 - Python
 - Java
@@ -12,7 +11,7 @@ cities:
   - Wuhan
 
 # Write multiple lines as single line
-mimic: > 
+mimic: >
   sldndnndndnd
   dnnfndnd
   mdndnnd
@@ -26,5 +25,6 @@ octal: !!int 01978
 
 # Nullity
 username: !!null Null
+
 
 

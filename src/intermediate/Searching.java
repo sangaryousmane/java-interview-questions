@@ -73,15 +73,15 @@ public class Searching {
 //        }
 //        return i - 1;
 
-        long left = 0, end = n;
+        long left = 1, end = n;
         long current, middle;
 
         while (left <= end) {
-            middle = left + (end - left);
+            middle = left + (end - left) / 2;
             current = middle * (middle + 1) / 2;
 
             if (n == current)
-                return (int) current;
+                return (int) middle;
             else if (n < current) {
                 end = middle - 1;
             } else {
@@ -234,6 +234,7 @@ public class Searching {
         return count;
     }
 
+    // Return true if the number of digits is even
     static boolean isEven(int n) {
         return numOfDigits(n) % 2 == 0;
     }
@@ -291,10 +292,10 @@ public class Searching {
 
     // https://leetcode.com/problems/valid-perfect-square/
     public static boolean isPerfectSquare(int num) {
-        int start = 1, end = num;
+        long start = 1, end = num;
 
         while (start <= end) {
-            int mid = start + (end - start) / 2;
+            long mid = start + (end - start) / 2;
 
             if ((mid * mid) == num) {
                 return true;
@@ -327,6 +328,7 @@ public class Searching {
 
     // https://leetcode.com/problems/search-insert-position/
     // Same as ceiling of  a number, we return start when not found
+    // Greatest smallest element in the array
     public static int searchInsertPosition(int[] arr, int target) {
         int start = 0, end = arr.length - 1;
 
@@ -462,7 +464,7 @@ public class Searching {
 
     // https://www.geeksforgeeks.org/find-position-element-sorted-array-infinite-numbers/
     // Find position of an element in a sorted array of infinite numbers
-    // Double the size of the array until the target position if found
+    // Double the size of the array until the target position is found
     // [3, 4, 5, 6, 7, 8] target = 6
     public static int elementOfInfiniteArray(int[] nums, int target) {
         // first find the range

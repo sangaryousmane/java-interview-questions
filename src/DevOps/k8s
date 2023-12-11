@@ -1,0 +1,57 @@
+Kubernetes is developed and originated by Google, a solution for Borg
+
+K8s - for containerization
+- Containers are ephemeral in nature, meaning they're short lived. Dies anytime.
+
+Problems with Docker
+- Single Daemon or host nature
+- Docker fail with Auto-healing, which happens when containers restart without human interaction
+- Docker doesn't scale automatically or balance load(auto-scaling)
+- Docker-O, bridge networking
+- Docker doesn't provide any enterprise support
+  For an application to be enterprise ready, it should contains:
+  Load balancer, Firewall, API gateway, Auto healing and Auto scaling,
+  SSH, distributed system, Circuit breaker, Messaging, Streaming
+
+That's why we need Kubernetes, it solves countless of problems presented by Docker
+
+k8s Bring aboard the following:
+1. Replication Controller or Replica Set
+2. k8s heavily depends on yaml file(manifest file)
+3. HPA(Horizontal Port Auto-Scaler)
+4. Solve the problem of auto-healing and auto-scaling
+5. If for some reasons your container is going down, docker will need you to manually
+   check the container status and the developer will have to manually restart.
+   In the case of k8s, containers immediately recreate new containers even before
+   the container goes down.
+- Master, worker and slave node
+
+7. Ingress
+
+K8s Architecture
+The simplest thing in Docker is Container and the simplest thing in k8s is Pod
+- The container runtime in Docker is called Docker strim
+- k8s supports Cri-O containerd, Docker strim and other container runtimes
+- kube-proxy provides networking, IP addressing and default load balancing capability
+- Container Runtime is responsible for running the containers
+- Kubelet is responsible for the creation and maintenance of pods
+  It is responsible for ensuring that containers are running in a pod.
+
+k8s Platform
+- Development environments: KPS, Minikube, Micro8Ks, K3S, KanD
+
+Linux Distribution
+- Red Hat, CentOS, Amazon Linux, Kali Linux, Ubuntu
+
+K8s Distribution
+- Amazon Elastic Kubernetes Service (EKS)
+- Google Kubernetes Engine (GKE)
+- Azure Kubernetes Service (AKS)
+- DigitalOcean Kubernetes
+- K3s , Minikube, KubeSphere, Pharos, Tanzu, Ranctier
+
+K8s Installation
+- Kops(kubernetes operation), kubeadm(kubernetes administration)
+-  minikube start --memory=4096 --driver=virtualbox
+- minikube delete
+- kubectl cheat-sheet

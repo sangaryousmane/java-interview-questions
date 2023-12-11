@@ -1,2 +1,6 @@
-package advance.stacksqueues;public class MinStack {
+package advance.stacksqueues;
+// https://leetcode.com/problems/min-stack/
+public class MinStack {
+
+
 }

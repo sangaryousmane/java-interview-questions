@@ -88,4 +88,71 @@ public class Recursion {
             return arr[0];
         return Math.max(arr[n - 1], maxElement(arr, n - 1));
     }
+
+    static void print(int n) {
+        if (n == 5) {
+            System.out.println(5);
+            return;
+        }
+        System.out.println(n);
+        print(n + 1);
+    }
+
+    static void printReverse(int n) {
+        if (n == 0) {
+            System.out.println(n);
+            return;
+        }
+        System.out.println(n);
+        printReverse(n - 1);
+    }
+
+    static int factorial(int n) {
+        if (n <= 1) return 1;
+
+        return n * factorial(n - 1);
+    }
+
+    static int sumOfNumber(int n) {
+        if (n <= 1) return 1;
+        return n + sumOfNumber(n - 1);
+    }
+
+    static int fibonacci(int n) {
+        // base condition
+        if (n < 2) {
+            return n;
+        }
+        return fibonacci(n - 1) + fibonacci(n - 2);
+    }
+
+    static int sumOfDigitsRecur(int n) {
+        if (n == 0) return n;
+        return (n % 10) + (sumOfDigitsRecur(n / 10));
+    }
+
+    static int productOfNumsRecur(int n) {
+        if (n % 10 == n) return n;
+        return (n % 10) * productOfNumsRecur(n / 10);
+    }
+
+    static int binarySearchRecur(int[] nums, int target, int start, int end) {
+
+        if (start > end)
+            return -1;
+
+        int middle = start + (end - start) / 2;
+        if (target == nums[middle])
+            return middle;
+        if (nums[middle] > target)
+            return binarySearchRecur(nums, target, start, middle - 1);
+        return binarySearchRecur(nums, target, middle + 1, end);
+    }
+
+    public static void main(String[] args) {
+//        int[] arr = {1, 2, 3, 4, 56, 76};
+//        System.out.println(binarySearchRecur(arr, 100, 0, arr.length - 1));
+
+        System.out.println(productOfNumsRecur(325));
+    }
 }

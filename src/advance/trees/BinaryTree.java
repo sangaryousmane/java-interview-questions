@@ -214,13 +214,13 @@ public class BinaryTree {
         if (root == null)
             return 0;
         int sum = 0;
-
-        if (root.left != null && root.left.left== null && root.left.right == null){
+        if (root.left != null && root.left.left== null
+                && root.left.right == null){
             sum += root.left.data;
         }
         sum += sumOfLeftLeaves(root.left);
         sum += sumOfLeftLeaves(root.right);
-        return sumOfLeftLeaves(root.left) + sumOfLeftLeaves(root.right);
+        return sum;
     }
 
     // Check if the node is a leaf
@@ -233,7 +233,7 @@ public class BinaryTree {
     public boolean isRootNode(Node node){
         if(node == null)
             return false;
-        return node.left != null && node.left != null;
+        return node.left != null && node.right != null;
 
     }
     private static void printer() {

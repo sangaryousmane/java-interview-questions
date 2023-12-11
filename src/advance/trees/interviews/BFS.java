@@ -97,34 +97,46 @@ public class BFS {
         return result;
     }
 
+    // https://leetcode.com/problems/minimum-depth-of-binary-tree/description/
+    public int minDepth(TreeNode root) {
+        if (root == null) return 0;
+
+        int left = minDepth(root.left) + 1;
+        int right = minDepth(root.right) + 1;
+
+        if (root.left != null) return right;
+        if (root.right != null) return left;
+        return Math.min(left, right);
+    }
+
     // https://leetcode.com/problems/binary-tree-zigzag-level-order-traversal/
-    public List<List<Integer>> zigzagLevelOrder(TreeNode root){
+    public List<List<Integer>> zigzagLevelOrder(TreeNode root) {
         List<List<Integer>> result = new ArrayList<>();
 
         if (root == null)
             return result;
 
         Deque<TreeNode> queue = new LinkedList<>();
-        queue.add(root);
+        queue.offerFirst(root);
         boolean isReversed = false;
 
-        while (!queue.isEmpty()){
+        while (!queue.isEmpty()) {
             int leveSize = queue.size();
             List<Integer> currenLevel = new ArrayList<>();
 
-            for (int i = 0; i < leveSize; i++){
+            for (int i = 0; i < leveSize; i++) {
 
                 // If the tree is in a reversed order
-                if (isReversed){
+                if (isReversed) {
                     TreeNode currentNode = queue.pollLast(); // remove last
                     currenLevel.add(currentNode.value);
-                    if(currentNode.right != null)
+                    if (currentNode.right != null)
                         queue.addFirst(currentNode.right);
                     if (currentNode.left != null)
                         queue.addFirst(currentNode.left);
                 }
                 // If the tree is in normal order
-                else{
+                else {
                     TreeNode currentNode = queue.pollFirst(); // remove first
                     currenLevel.add(currentNode.value);
                     if (currentNode.left != null)
@@ -197,5 +209,39 @@ public class BFS {
         return result;
     }
 
-    // https://leetcode.com/problems/populating-next-right-pointers-in-each-node/description/
+    // https://leetcode.com/problems/maximum-depth-of-binary-tree/
+    // Depth First Search
+    public int maxDepth(TreeNode root) {
+        // Max depth means the number of nodes from root to the farthest node.
+        if (root == null) return 0;
+        int left = maxDepth(root.left);
+        int right = maxDepth(root.right);
+        return Math.max(left, right) + 1;
+    }
+
+    // https://leetcode.com/problems/binary-tree-right-side-view/description/
+    public List<Integer> rightSideView(TreeNode root) {
+        List<Integer> result=new ArrayList<>();
+        if (root == null) {
+            return result;
+        }
+        Queue<TreeNode> queue=new LinkedList<>();
+        queue.offer(root);
+
+        while(!queue.isEmpty()){
+            int level=queue.size();
+
+            for (int i= 0; i< level; i++){
+                TreeNode current= queue.poll();
+                if (i == level - 1)
+                    result.add(current.value);
+
+                if (current.left != null)
+                    queue.offer(current.left);
+                if (current.right != null)
+                    queue.offer(current.right);
+            }
+        }
+        return result;
+    }
 }
