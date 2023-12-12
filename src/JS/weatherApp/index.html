@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>WEATHER SEARCH APP</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+<h1 class="header">WEATHER APP</h1>
+<div class="card">
+    <div class="search">
+        <label>
+            <input type="text" placeholder="Enter city name"/>
+        </label>
+        <button><img src="images/search.png" alt="Search btn"></button>
+    </div>
+
+    <!--If city name is wrong or misspelled -->
+    <div class="error">
+        <strong>No city with the given name found</strong>
+    </div>
+
+    <div class="weather">
+        <img class="weather-icon" src="images/clouds.png" alt="Default image"/>
+        <h1 class="temp">22°C</h1>
+        <h2 class="city">New York</h2>
+        <h2 class="country-code">USA</h2>
+
+        <div class="details">
+            <div class="col">
+                <img src="images/humidity.png" alt="Humidity">
+                <div>
+                    <p class="humidity">50%</p>
+                    <p>Humidity</p>
+                </div>
+            </div>
+
+            <div class="col">
+                <img src="images/wind.png" alt="Wind">
+                <div>
+                    <p class="wind">7 km/h</p>
+                    <p>Wind</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Embed JS-->
+<script src="script.js"></script>
+</body>
+</html>
