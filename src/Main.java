@@ -10,15 +10,17 @@ import recursive.Recursion;
 
 import java.util.*;
 import java.util.concurrent.atomic.AtomicReference;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 import static intermediate.Sorting.swap;
 
 
 public class Main {
+
+    private static Logger logger=Logger.getLogger(Main.class.getName());
     public static void main(String[] args) {
-        int[] nums = {19, 48, 99, 71, 13, 52, 96, 73, 86, 7};
-        mergeSort(nums);
-        System.out.println(Arrays.toString(nums));
+        logger.log(Level.INFO, "I am fine");
     }
 
     public static void mergeSort(int[] nums) {
