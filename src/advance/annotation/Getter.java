@@ -1,2 +1,4 @@
-package advance.annotation;public class Getter {
+package advance.annotation;
+
+public class Getter {
 }

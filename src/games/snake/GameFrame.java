@@ -7,7 +7,7 @@ public class GameFrame extends JFrame {
 
     public GameFrame() throws HeadlessException {
         this.add(new GamePanel());
-        this.setTitle("SNAKE");
+        this.setTitle("SNAKE GAME");
         this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         this.setResizable(false);
         this.pack();

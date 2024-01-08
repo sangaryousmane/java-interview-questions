@@ -95,7 +95,7 @@ class Tic {
         }
 
         char player = 'X'; // a player
-        boolean isGameOver = false; // the haven't start yet
+        boolean isGameOver = false; // the game haven't start yet
 
         while (!isGameOver) {
             printBoard(board);

@@ -33,7 +33,7 @@ public class BlackJackDealer extends BlackJackPlayer implements Dealer {
 		
 
 	public void dealCard(Player player){
-    	player.receive(cards.remove(0));
+    	player.receive(cards.remove(suit));
     	
     }
     

@@ -167,10 +167,10 @@ public class WorkingWithStrings {
     // https://leetcode.com/problems/minimum-add-to-make-parentheses-valid/description/
     public int minAddToMakeValid(String s) {
         Stack<Character> stack = new Stack<>();
-        for (char chr: s.toCharArray()){
+        for (char chr : s.toCharArray()) {
             if (chr == ')')
-                if(!stack.isEmpty() && stack.peek() == '(')
-                    stack.pop();
+                if (!stack.isEmpty() && stack.peek() == '(')
+                    stack.pop(); // Remove from the stack because there is a match
                 else
                     stack.push(chr);
             else
@@ -202,6 +202,43 @@ public class WorkingWithStrings {
         else
             purchaseAmount -= purchaseAmount % 10;
         return 100 - purchaseAmount;
+    }
+
+    static int[] twoSum(int[] nums, int target) {
+        Map<Integer, Integer> seen = new HashMap<>();
+
+        for (int i = 0; i < nums.length; i++) {
+            int complement = target - nums[i];
+
+            // Check if the complement is in the map
+            if (seen.containsKey(complement)) {
+                return new int[]{seen.get(complement), i};
+            }
+
+            // Add the current number and its index to the map
+            seen.put(nums[i], i);
+        }
+        return new int[]{-1, -1};
+    }
+
+    // https://leetcode.com/problems/merge-intervals/
+    public int[][] merge(int[][] intervals) {
+        // First sort the array - O(nlogn)
+        Arrays.sort(intervals, Comparator.comparingInt(num -> num[0]));
+        List<int[]> merged = new ArrayList<>();
+
+
+        for (int[] interval : intervals) {
+            int start = interval[0], end = interval[1];
+
+            if (merged.isEmpty() || start > merged.get(merged.size() - 1)[1]) {
+                merged.add(new int[]{start, end});
+            } else {
+                int[] lastInterval = merged.get(merged.size() - 1);
+                lastInterval[1] = Math.max(lastInterval[1], end);
+            }
+        }
+        return merged.toArray(new int[0][]);
     }
 
     // https://leetcode.com/problems/integer-to-roman/description/
