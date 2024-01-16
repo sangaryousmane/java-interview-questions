@@ -79,6 +79,19 @@ public class WorkingWithStrings {
         return buffer;
     }
 
+    // https://leetcode.com/problems/best-time-to-buy-and-sell-stock-ii/
+    public int maxProfit(int[] prices) {
+        int maxProfit = 0;
+
+        for (int i = 1; i < prices.length; i++) {
+            if (prices[i] > prices[i - 1]) {
+                maxProfit += prices[i] - prices[i - 1];
+            }
+        }
+        return maxProfit;
+    }
+
+
     public static void playWithFile() {
         File file = new File("advance/out.txt");
         System.out.println(file.getParentFile());
@@ -172,7 +185,7 @@ public class WorkingWithStrings {
                 if (!stack.isEmpty() && stack.peek() == '(')
                     stack.pop(); // Remove from the stack because there is a match
                 else
-                    stack.push(chr);
+                    stack.push(chr); // Push there is no match
             else
                 stack.push(chr);
         }
@@ -219,6 +232,20 @@ public class WorkingWithStrings {
             seen.put(nums[i], i);
         }
         return new int[]{-1, -1};
+    }
+
+
+    // https://leetcode.com/problems/group-anagrams/submissions/1140954749/
+    public List<List<String>> groupAnagrams(String[] strs) {
+        Map<String, List<String>> map = new HashMap<>();
+
+        for (String word : strs) {
+            char[] chrs = word.toCharArray();
+            Arrays.sort(chrs);
+            String sorted = new String(chrs);
+            map.computeIfAbsent(sorted, key -> new ArrayList<>()).add(word);
+        }
+        return new ArrayList<>(map.values());
     }
 
     // https://leetcode.com/problems/merge-intervals/
