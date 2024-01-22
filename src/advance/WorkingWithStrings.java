@@ -268,6 +268,58 @@ public class WorkingWithStrings {
         return merged.toArray(new int[0][]);
     }
 
+    public void combination(int[] nums, int startIndex, int target, List<Integer> current, List<List<Integer>> result) {
+        // CHeck if the target has been reached and add the current list to the result n return
+        if (target == 0) {
+            result.add(new ArrayList<Integer>(current));
+            return; // Backtrack
+        }
+        // If the target hasn't been reached and start index is >= length of array, return without doing anything
+        if (target < 0 || startIndex >= nums.length) return;
+        for (int k = startIndex; k < nums.length; k++) {
+            current.add(nums[k]);
+            int complement = target - nums[k];
+            combination(nums, k, complement, current, result);
+            current.remove(current.size() - 1);  // Backtrack
+        }
+    }
+
+    // TC: O(k*(2^n))
+    // AS: O(k*x)
+    // https://leetcode.com/problems/combination-sum/description/
+    public List<List<Integer>> combinationSum(int[] candidates, int target) {
+        List<List<Integer>> results = new ArrayList<List<Integer>>();
+        combination(candidates, 0, target, new ArrayList<>(), results);
+        return results;
+    }
+
+    // https://leetcode.com/problems/number-of-islands/description/
+    public int numIslands(char[][] grid) {
+        int i, j, counter = 0;
+
+        for (i = 0; i < grid.length; i++) {
+            for (j = 0; j < grid[0].length; j++) {
+                if (grid[i][j] == '1') {
+                    counter++;
+                    dfs(grid, i, j);
+                }
+            }
+        }
+        return counter;
+    }
+
+    private void dfs(char[][] grid, int i, int j) {
+        if (i < 0 || j < 0 || i >= grid.length || j >= grid[0].length) return;
+
+        if (grid[i][j] != '1') return;
+
+        grid[i][j] = '9';
+        dfs(grid, i - 1, j);
+        dfs(grid, i, j + 1);
+        dfs(grid, i + 1, j);
+        dfs(grid, i, j - 1);
+    }
+
     // https://leetcode.com/problems/integer-to-roman/description/
     public String intToRoman(int num) {
         String[] ones = {"", "I", "II", "III", "IV", "V", "VI", "VII", "VIII", "IX"};
