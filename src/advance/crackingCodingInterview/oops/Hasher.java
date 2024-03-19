@@ -1,7 +1,6 @@
 package advance.crackingCodingInterview.oops;
 
 import java.util.ArrayList;
-import java.util.List;
 
 /**
  * Design and implement a hash table which
