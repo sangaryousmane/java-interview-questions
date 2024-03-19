@@ -1,4 +1,4 @@
-package advance.crackingCodingInterview.linkedList.palindromes;
+package advance.crackingCodingInterview.linkedList.general;
 
 import advance.crackingCodingInterview.ListNode;
 

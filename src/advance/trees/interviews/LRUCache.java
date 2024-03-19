@@ -66,6 +66,7 @@ class LRUCache {
         node.next.prev = node.prev;
     }
 
+    // Add node to index 1(after the head)
     private void addToFront(ListNode node) {
         node.next = head.next;
         head.next.prev = node;

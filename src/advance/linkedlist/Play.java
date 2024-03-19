@@ -82,37 +82,35 @@ public class Play {
         return data;
     }
 
-    public int deleteLast(){
+    public int deleteLast() {
         if (head == null) return -1;
 //        if (head.next == null){
 //            deleteFirst();
 //            return head.value;
 //        }
-        ListNode last=head;
+        ListNode last = head;
         int size = 1;
-        while (last.next != null){
+        while (last.next != null) {
             size++;
             last = last.next;
         }
-        ListNode secondToLast=head;
-        for(int i = 0; i < size - 2; i++){
+        ListNode secondToLast = head;
+        for (int i = 0; i < size - 2; i++) {
             secondToLast = secondToLast.next;
         }
-        int data= last.value;
+        int data = last.value;
         secondToLast.next = null;
         return data;
     }
 
-    public boolean detectCycle(){
-        ListNode turtle=head;
+    public boolean isCycle() {
+        ListNode turtle = head;
         ListNode hare = head;
 
         while (hare != null && hare.next != null){
-            turtle = turtle.next; // single step
-            hare = hare.next.next; // Double step
-            if (turtle == hare)
-                return true;
-
+            turtle = turtle.next; // One step at  a time
+            hare = hare.next.next;
+            if(turtle == hare) return true;
         }
         return false;
     }
@@ -143,7 +141,6 @@ public class Play {
         p.displayNodes();
         p.deleteLast();
         p.displayNodes();
-
 
 
 //        System.out.println("The length is: " + p.getLength());

@@ -85,6 +85,21 @@ public class LeetCodingLinkedList {
         return head;
     }
 
+    // https://leetcode.com/problems/middle-of-the-linked-list/
+    public ListNode middleNode(ListNode head){
+        if (head == null) return null;
+        if (head.next == null) return head;
+
+        ListNode turtoise = head;
+        ListNode hare = head;
+
+        while (hare != null && hare.next != null){
+            turtoise = turtoise.next;
+            hare = hare.next.next;
+        }
+        return turtoise;
+    }
+
     // Add node as last
     private void insertAtEnd(int value) {
         ListNode newNode = new ListNode(value);
@@ -201,6 +216,21 @@ public class LeetCodingLinkedList {
         return squareOfDigits;
     }
 
+    // https://leetcode.com/problems/linked-list-cycle/
+    public boolean hasCycle(ListNode head) {
+        if(head == null) return false;
+
+        ListNode fast = head;
+        ListNode slow = head;
+
+        while(fast != null && fast.next != null){
+            fast = fast.next.next;
+            slow = slow.next;
+            if(slow==fast) return true;
+        }
+        return false;
+    }
+
     // Find the middle node of the linked list
     public ListNode findMiddleOfList(ListNode head) {
         ListNode slow = head;
@@ -216,9 +246,8 @@ public class LeetCodingLinkedList {
     // Iterative or in-place reversal
     // https://leetcode.com/problems/reverse-linked-list/
     public ListNode reverseList(ListNode head) {
-        if (head == null) {
-            return null;
-        }
+        if (head == null) return null;
+
         ListNode slow = head;
         ListNode fast = head.next;
         ListNode prev = null;
@@ -300,6 +329,32 @@ public class LeetCodingLinkedList {
         return decimal;
     }
 
+    // https://leetcode.com/problems/add-two-numbers/
+    public ListNode addTwoNumbers(ListNode l1, ListNode l2) {
+        if (l1 == null || l2 == null) return null;
+
+        ListNode listNode=new ListNode(0);
+        ListNode currentNode = listNode;
+        int number = 0 ;
+        while(number != 0 || l1 != null || l2 != null){
+            int sum = 0;
+            if (l1 != null) {
+                sum += l1.value;
+                l1 = l1.next;
+            }
+            if (l2 != null) {
+                sum += l2.value;
+                l2 = l2.next;
+            }
+            sum += number;
+            number = sum / 10;
+            ListNode node = new ListNode(sum % 10);
+            currentNode.next = node;
+            currentNode = node;
+        }
+
+        return listNode.next;
+    }
     public static void main(String[] args) {
         LeetCodingLinkedList list = new LeetCodingLinkedList();
         list.add(1);

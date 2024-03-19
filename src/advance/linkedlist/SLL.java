@@ -172,6 +172,7 @@ public class SLL {
             head = newNode;
             return newNode;
         }
+        // Iterate as long there are still nodes and they are less than the new node
         while (temp.next != null && temp.next.data < newNode.data){
             temp = temp.next;
         }
